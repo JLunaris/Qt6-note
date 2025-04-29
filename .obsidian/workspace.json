@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "0a9ee0045842a264",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f962e6d676679f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0433ddb23649c5ee",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d16e866cca74373c",
+    "type": "split",
+    "children": [
+      {
+        "id": "17d2fbb464fb180f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c96a52da43fc313",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "79438ee7e9aef812",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "d22e33adec44b0f5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 236.5
+  },
+  "right": {
+    "id": "a5b1d685ad90b651",
+    "type": "split",
+    "children": [
+      {
+        "id": "6cceb2dbe883a5f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4eaba4c181886198",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Qt Widgets/C++ Classes/QWidget.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "QWidget 的反向链接列表"
+            }
+          },
+          {
+            "id": "468a6dd5235fbe98",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Qt Widgets/C++ Classes/QWidget.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "QWidget 的出链列表"
+            }
+          },
+          {
+            "id": "163b615a49871f67",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "b139c2e0ae4c999b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "6389453fb48b1fd4",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 329.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "0433ddb23649c5ee",
+  "lastOpenFiles": [
+    "Qt GUI/C++ Classes/QEvent.md",
+    "Qt GUI/C++ Classes/QInputEvent.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
+    "Qt GUI/C++ Classes/QSinglePointEvent.md",
+    "Qt Core/Signals & Slots.md",
+    "Qt Core/The Meta-Object System.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QMouseEvent.md",
+    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
+    "Using.md",
+    "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
+    "[[The.md",
+    "image/Pasted image 20250421173004.png",
+    "Qt Widgets/Graphics View Framework.md",
+    "Qt Widgets/Window and Dialog Widgets.md",
+    "Qt Core/C++ Classes/QObject.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "2025-04-17.md",
+    "未命名.canvas",
+    "image/Pasted image 20250416153227.png",
+    "Qt Core/C++ Classes/QRectF.md",
+    "Qt Core/C++ Classes/QRect.md",
+    "Qt Widgets/Qt Style Sheets",
+    "Qt Core/C++ Classes",
+    "Qt Core",
+    "欢迎.md",
+    "Window and Dialog Widgets.md",
+    "image",
+    "image/Pasted image 20250408101013.png",
+    "Pasted image 20250408101006.png",
+    "Pasted image 20250408100928.png",
+    "Qt GUI/C++ Classes",
+    "Qt Widgets/C++ Classes",
+    "Qt GUI",
+    "Qt Widgets",
+    "创建链接.md",
+    "QWidget"
+  ]
+}

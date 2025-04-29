@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2f962e6d676679f4",
+        "id": "d1e6b3010d7813af",
         "type": "tabs",
         "children": [
           {
-            "id": "0433ddb23649c5ee",
+            "id": "4f2be29fa51c272f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -90,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QWidget.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "QWidget 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -109,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QWidget.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "QWidget 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -139,7 +137,7 @@
               "type": "outline",
               "state": {
                 "followCursor": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
@@ -174,30 +172,33 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0433ddb23649c5ee",
+  "active": "4f2be29fa51c272f",
   "lastOpenFiles": [
-    "Qt GUI/C++ Classes/QEvent.md",
-    "Qt GUI/C++ Classes/QInputEvent.md",
-    "Qt GUI/C++ Classes/QPointerEvent.md",
-    "Qt GUI/C++ Classes/QSinglePointEvent.md",
-    "Qt Core/Signals & Slots.md",
-    "Qt Core/The Meta-Object System.md",
+    "Qt Widgets/C++ Classes/QFileDialog.md",
     "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt Widgets/C++ Classes/QDialog.md",
     "Qt GUI/C++ Classes/QMouseEvent.md",
-    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
-    "Using.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
+    "Qt GUI/C++ Classes/QScreen.md",
+    "Qt Core/C++ Classes/QObject.md",
+    "Qt Core/C++ Classes/QRect.md",
+    "Qt Core/C++ Classes/QRectF.md",
+    "Qt Core/Signals & Slots.md",
+    "Qt Widgets/Window and Dialog Widgets.md",
+    "Qt Widgets/Graphics View Framework.md",
     "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
+    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
+    "Qt GUI/C++ Classes/QSinglePointEvent.md",
+    "Qt GUI/C++ Classes/QInputEvent.md",
+    "Qt GUI/C++ Classes/QEvent.md",
+    "Qt Core/The Meta-Object System.md",
+    "Using.md",
     "[[The.md",
     "image/Pasted image 20250421173004.png",
-    "Qt Widgets/Graphics View Framework.md",
-    "Qt Widgets/Window and Dialog Widgets.md",
-    "Qt Core/C++ Classes/QObject.md",
-    "Qt GUI/C++ Classes/QPainter.md",
     "2025-04-17.md",
     "未命名.canvas",
     "image/Pasted image 20250416153227.png",
-    "Qt Core/C++ Classes/QRectF.md",
-    "Qt Core/C++ Classes/QRect.md",
     "Qt Widgets/Qt Style Sheets",
     "Qt Core/C++ Classes",
     "Qt Core",

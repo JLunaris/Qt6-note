@@ -1,8 +1,8 @@
 https://doc.qt.io/qt-6/qscreen.html
 
-- Inherits：[[QObject]]
-
 `QScreen`类用于查询屏幕属性。
+
+- Inherits：[[QObject]]
 
 # Properties
 

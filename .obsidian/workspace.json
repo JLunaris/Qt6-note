@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e64458c97669e7a7",
+        "id": "674916d42f28eaec",
         "type": "tabs",
         "children": [
           {
-            "id": "dac36170de43c733",
+            "id": "fa038a7355b9b5e8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt GUI/C++ Classes/QPixmap.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QPixmap"
+              "title": "QGraphicsScene"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt GUI/C++ Classes/QPixmap.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QPixmap 的大纲"
+              "title": "QGraphicsScene 的大纲"
             }
           },
           {
@@ -179,10 +179,12 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt Widgets/C++ Classes/QWidget.md",
-    "Qt GUI/C++ Classes/QPixmap.md",
-    "Qt GUI/C++ Classes/QPointerEvent.md",
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "Qt GUI/C++ Classes/QRegion.md",
     "Qt GUI/C++ Classes/QScreen.md",
+    "Qt GUI/C++ Classes/QPixmap.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt Widgets/C++ Classes/QFileDialog.md",
     "Qt GUI/C++ Classes/QSinglePointEvent.md",
     "Qt GUI/C++ Classes/QPainter.md",
@@ -209,7 +211,6 @@
     "Qt Core/C++ Classes",
     "Qt Core",
     "欢迎.md",
-    "Window and Dialog Widgets.md",
     "image",
     "image/Pasted image 20250408101013.png",
     "Pasted image 20250408101006.png",
@@ -218,7 +219,6 @@
     "Qt Widgets/C++ Classes",
     "Qt GUI",
     "Qt Widgets",
-    "创建链接.md",
     "QWidget"
   ]
 }

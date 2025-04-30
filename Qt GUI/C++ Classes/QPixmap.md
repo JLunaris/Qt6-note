@@ -71,7 +71,7 @@ Qt 支持的图像格式可通过[`QImageReader::supportedImageFormats()`](https
 
 `scaled()`、`scaledToWidth()`、`scaledToHeight()`函数返回缩放后的 pixmap 副本，`copy()`函数创建原始图像的深拷贝副本。
 
-`transformed()`函数返回**使用给定变换矩阵和变换模式**变换后的 pixmap 副本：在内部会自动调整变换矩阵，以抵消不希望的平移，也就是说，`transformed()`返回的是能够完整包含原始 pixmap 所有经变换后的点的**最小的 pixmap**。
+`transformed()`函数返回**使用给定变换矩阵和变换模式**变换后的 pixmap 副本：在内部会自动调整变换矩阵，以抵消不希望的平移，也就是说，`transformed()`返回的是能够包含原始 pixmap 所有经变换后的点的**最小 pixmap**。
 
 `trueMatrix()`返回用于变换 pixmap 的实际矩阵。
 

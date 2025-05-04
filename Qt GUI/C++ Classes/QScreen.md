@@ -34,7 +34,7 @@ https://doc.qt.io/qt-6/qscreen.html
 
 ### devicePixelRatio : const qreal
 
-该属性保存屏幕的**物理像素**和**设备无关像素**（device-independent pixels）的比率。
+该属性保存屏幕的**物理像素**和**设备无关像素**（device-independent pixels）的比值。
 
 普通显示屏的比率通常为`1.0`，"retina"显示屏的比率通常为`2.0`。更高的值也是可能的。
 

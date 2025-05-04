@@ -1,6 +1,6 @@
 https://doc.qt.io/qt-6/qpixmap.html
 
-`QPixmap`类是一个屏幕外的图像表示，可用作**绘制设备**（paint device）。
+`QPixmap`是一种屏幕外的图像表示，可用作**绘制设备**（paint device）。
 
 - Inherits：`QPaintDevice`
 - Inherited By：`QBitmap`

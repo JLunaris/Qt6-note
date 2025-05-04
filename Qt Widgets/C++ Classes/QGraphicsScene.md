@@ -1,6 +1,6 @@
 https://doc.qt.io/qt-6/qgraphicsscene.html
 
-`QGraphicsScene`类提供了一个用于管理大量 2D 图形项的表面。
+`QGraphicsScene`是一个用于管理大量 2D 图形项的表面。
 
 - Inherits：[[QObject]]
 
@@ -30,4 +30,7 @@ QPainter painter(&printer);
 scene.render(&painter);
 ```
 
-如果 *source* 是空矩形，则使用`sceneRect()`确定渲染区域。如果 *target* 是空矩形，则使用 *painter* 的绘制设备
+如果 *source* 是空矩形，则使用`sceneRect()`确定渲染区域。如果 *target* 是空矩形，则使用 *painter* 的绘制设备的尺寸。
+
+*source* 矩形内容将根据 *aspectRatioMode* 进行转换，以适应 *target* 矩形。默认情况下，纵横比保持不变，*source* 被缩放以适应 *target* 。
+

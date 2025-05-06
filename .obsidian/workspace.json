@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt GUI/C++ Classes/QImage.md",
+                "file": "Qt GUI/C++ Classes/QPixmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QImage"
+              "title": "QPixmap"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt GUI/C++ Classes/QImage.md",
+                "file": "Qt GUI/C++ Classes/QPixmap.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QImage 的大纲"
+              "title": "QPixmap 的大纲"
             }
           },
           {
@@ -179,24 +179,24 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt GUI/C++ Classes/QInputEvent.md",
-    "Qt GUI/C++ Classes/QLabel.md",
-    "Qt GUI/C++ Classes/QScreen.md",
     "Qt GUI/C++ Classes/QImage.md",
     "Qt GUI/C++ Classes/QPixmap.md",
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt GUI/C++ Classes/QEvent.md",
+    "Qt GUI/C++ Classes/QLabel.md",
     "Qt GUI/C++ Classes/QMouseEvent.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Qt GUI/C++ Classes/QScreen.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QInputEvent.md",
+    "Qt GUI/C++ Classes/QEvent.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
     "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Qt Widgets/C++ Classes/QFileDialog.md",
     "Qt Widgets/C++ Classes/QDialog.md",
     "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
     "Qt GUI/C++ Classes/QSinglePointEvent.md",
-    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt GUI/C++ Classes/QRegion.md",
     "Qt Widgets/C++ Classes/QFrame.md",
-    "Qt Widgets/C++ Classes/QWidget.md",
     "Qt Core/C++ Classes/QObject.md",
     "Qt Core/C++ Classes/QRect.md",
     "Qt Core/C++ Classes/QRectF.md",

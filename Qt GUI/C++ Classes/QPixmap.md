@@ -77,6 +77,8 @@ Qt 支持的图像格式可通过[`QImageReader::supportedImageFormats()`](https
 
 # Public Functions
 
+### Pixmap 变换
+
 ##### `QPixmap copy(const QRect &rectangle = QRect()) const`
 
 返回由`rectangle`指定的 pixmap 子区域的**深拷贝**。
@@ -86,3 +88,59 @@ Qt 支持的图像格式可通过[`QImageReader::supportedImageFormats()`](https
 ##### `QPixmap copy(int x, int y, int width, int height) const`
 
 等价于`copy(QRect(x, y, width, height))`。
+
+### 设备像素比相关
+##### `void setDevicePixelRatio(qreal scaleFactor)`
+
+设置图像的**设备像素比**（device pixel ratio），即**设备像素**与**设备无关像素**的比值。
+
+默认的`scaleFactor`为`1.0`。将其设为其他值会产生两个影响：
+
+1. ==使用此图像创建的`QPainter`将会被缩放==。例如，在一个 200×200 的图像上绘制，如果比值为`2.0`，则有效的（设备无关的）绘制范围为 100×100。
+2. 根据图像尺寸计算**布局**几何信息的代码路径将考虑该比值，处理为 `QSize layoutSize = pixmap.size() / pixmap.devicePixelRatio()`，这样做的最终效果是图像==显示为**高 DPI 图像**而不是大图像==（见 [Drawing High Resolution Versions of Pixmaps and Images](https://doc.qt.io/qt-6/qpainter.html#drawing-high-resolution-versions-of-pixmaps-and-images)）。
+
+测试代码：在设备像素比为 1.5 的情况下，执行下列代码，观察 pixmap 的设备像素比为 1 和 1.5 时的不同。
+```cpp
+#include <QApplication>  
+#include <QMainWindow>  
+#include <print>  
+#include <QScreen>  
+#include <QLabel>  
+  
+int main(int argc, char *argv[])  
+{  
+    QApplication app {argc, argv};  
+    QMainWindow win;  
+      
+    QScreen *screen {QGuiApplication::primaryScreen()};  
+    QPixmap pixmap {screen->grabWindow()};  // 捕获当前屏幕
+    std::println("pixmap的设备像素比: {}", pixmap.devicePixelRatio());  
+    std::println("pixmap的大小: ({}, {})", pixmap.width(), pixmap.height());  
+  
+    pixmap.setDevicePixelRatio(1); // 注释掉该行，试一下  
+  
+    QLabel *label {new QLabel {&win}};  
+    label->setPixmap(pixmap);  
+    label->resize(pixmap.size());  
+      
+    win.show();  
+    return QApplication::exec();  
+}
+```
+
+##### `qreal devicePixelRatio() const`
+
+返回图像的**设备像素比**（device pixel ratio），即**设备像素**与**设备无关像素**的比值。
+
+根据图像尺寸计算**布局**几何信息时使用此函数：`QSize layoutSize = image.size() / image.devicePixelRatio()`。
+
+默认值为`1.0`。
+
+##### `QSizeF deviceIndependentSize() const`
+
+返回图像的尺寸，以设备无关像素为单位。
+
+用户界面尺寸计算中获取图像尺寸时，应使用该函数。
+
+数值上等价于==`pixmap.size() / pixmap.devicePixelRatio()`==。
+

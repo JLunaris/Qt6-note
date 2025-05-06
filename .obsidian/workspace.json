@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt GUI/C++ Classes/QPixmap.md",
+                "file": "Qt Widgets/C++ Classes/QFrame.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QPixmap"
+              "title": "QFrame"
             }
           }
         ]
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt GUI/C++ Classes/QPixmap.md",
+                "file": "Qt Widgets/C++ Classes/QFrame.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QPixmap 的大纲"
+              "title": "QFrame 的大纲"
             }
           },
           {
@@ -179,24 +179,25 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt GUI/C++ Classes/QImage.md",
-    "Qt GUI/C++ Classes/QPixmap.md",
-    "Qt GUI/C++ Classes/QLabel.md",
-    "Qt GUI/C++ Classes/QMouseEvent.md",
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt GUI/C++ Classes/QScreen.md",
-    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt Widgets/C++ Classes/QFrame.md",
+    "Qt Widgets/C++ Classes/QFileDialog.md",
+    "Qt GUI/C++ Classes/QScreen.md",
+    "Qt GUI/C++ Classes/QImage.md",
+    "Qt GUI/C++ Classes/QLabel.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Qt GUI/C++ Classes/QPixmap.md",
+    "Qt Widgets/C++ Classes/QDialog.md",
+    "image/Pasted image 20250506173600.png",
+    "Qt GUI/C++ Classes/QRegion.md",
+    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "Qt Widgets/C++ Classes/QGraphicsView.md",
+    "Qt GUI/C++ Classes/QMouseEvent.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt GUI/C++ Classes/QInputEvent.md",
     "Qt GUI/C++ Classes/QEvent.md",
-    "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Qt Widgets/C++ Classes/QGraphicsScene.md",
-    "Qt Widgets/C++ Classes/QFileDialog.md",
-    "Qt Widgets/C++ Classes/QDialog.md",
-    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
     "Qt GUI/C++ Classes/QSinglePointEvent.md",
-    "Qt GUI/C++ Classes/QRegion.md",
-    "Qt Widgets/C++ Classes/QFrame.md",
     "Qt Core/C++ Classes/QObject.md",
     "Qt Core/C++ Classes/QRect.md",
     "Qt Core/C++ Classes/QRectF.md",
@@ -204,7 +205,6 @@
     "Qt Widgets/Window and Dialog Widgets.md",
     "Qt Widgets/Graphics View Framework.md",
     "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
-    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
     "image/Pasted image 20250421173004.png",
     "未命名.canvas",
     "image/Pasted image 20250416153227.png",

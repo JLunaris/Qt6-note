@@ -111,18 +111,18 @@ int main(int argc, char *argv[])
 {  
     QApplication app {argc, argv};  
     QMainWindow win;  
-      
+  
     QScreen *screen {QGuiApplication::primaryScreen()};  
-    QPixmap pixmap {screen->grabWindow()};  // 捕获当前屏幕
+    QPixmap pixmap {screen->grabWindow()};  
     std::println("pixmap的设备像素比: {}", pixmap.devicePixelRatio());  
-    std::println("pixmap的大小: ({}, {})", pixmap.width(), pixmap.height());  
+    std::println("pixmap的设备无关尺寸: ({}, {})", pixmap.width(), pixmap.height()); 
+    std::println("pixmap的变换后的设备无关尺寸: ({}, {})", pixmap.deviceIndependentSize().width(), pixmap.deviceIndependentSize().height());  
   
     pixmap.setDevicePixelRatio(1); // 注释掉该行，试一下  
-  
     QLabel *label {new QLabel {&win}};  
     label->setPixmap(pixmap);  
     label->resize(pixmap.size());  
-      
+  
     win.show();  
     return QApplication::exec();  
 }

@@ -67,3 +67,48 @@ label.setFrameStyle(QFrame::NoFrame);
 | 访问函数  |                      |
 | ----- | -------------------- |
 | `int` | `frameWidth() const` |
+## 框架风格
+
+### frameShape : Shape
+
+该属性保存[框架形状](https://doc.qt.io/qt-6/qframe.html#Shape-enum)值。
+
+| 访问函数            |                                |
+| --------------- | ------------------------------ |
+| `QFrame::Shape` | `frameShape() const`           |
+| `void`          | `setFrameShape(QFrame::Shape)` |
+### frameShadow : Shadow
+
+该属性保存[框架阴影](https://doc.qt.io/qt-6/qframe.html#Shadow-enum)值。
+
+| 访问函数             |                                  |
+| ---------------- | -------------------------------- |
+| `QFrame::Shadow` | `frameShadow() const`            |
+| `void`           | `setFrameShadow(QFrame::Shadow)` |
+## 框架矩形
+### frameRect : QRect
+
+该属性保存框架的矩形。
+
+框架的矩形指的是在其中绘制框架的矩形，默认情况下是整个控件。设置矩形**不会**导致控件更新。当控件改变尺寸时，框架矩形会自动调整。
+
+如果将矩形设为空矩形（例如`QRect(0, 0, 0, 0)`），则结果框架矩形与[控件矩形](https://doc.qt.io/qt-6/qwidget.html#rect-prop)相同。
+
+> `QFrame::frameRect()`和`QWidget::geometry()`的区别：==`frameRect()`是相对于`QFrame`控件本身的==；而`geometry()`是相对`QFrame`控件的父控件的。
+
+| 访问函数    |                               |
+| ------- | ----------------------------- |
+| `QRect` | `frameRect() const`           |
+| `void`  | `setFrameRect(const QRect &)` |
+
+# Public Functions
+
+##### `int frameStyle() const`
+
+返回框架风格。默认值为`QFrame::Plain`。
+
+##### `void setFrameStyle(int style)`
+
+将框架风格设为`style`。`style`是[框架形状](https://doc.qt.io/qt-6/qframe.html#Shape-enum)和[框架阴影风格](https://doc.qt.io/qt-6/qframe.html#Shadow-enum)的按位或运算。
+
+如果中线宽度大于`0`，且框架风格为`Raised`/`Sunken`的`Box`/`HLine`/`VLine`，则会绘制中线。绘制中线时使用当前颜色组的 mid-color（即`QPalette::mid()`）。

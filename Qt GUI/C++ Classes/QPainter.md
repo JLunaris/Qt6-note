@@ -46,6 +46,42 @@ void MyWidget::paintEvent(QPaintEvent *)
 
 销毁 painter。
 
+### 显式启动和关闭
+
+##### `bool begin(QPaintDevice *device)`
+
+在绘制设备`device`上开始绘制操作。成功返回`true`，失败返回`false`。
+
+调用`begin()`时，painter 的所有设置（`setPen()`、`setBrush()`等）都将**重置为默认值**。
+
+可能出现的错误如下：
+
+```cpp
+painter->begin(0); // impossible - paint device cannot be 0
+
+QPixmap image(0, 0);
+painter->begin(&image); // impossible - image.isNull() == true;
+
+painter->begin(myWidget);
+painter2->begin(myWidget); // impossible - only one painter at a time
+```
+
+注意在大部分情况下，可直接使用构造函数`QPainter(QPaintDevice *)`而非显式调用`begin()`，并且`end()`会在析构时自动调用。
+
+> 警告：==一个绘制设备在同一时间只能被一个`QPainter`绘制==。
+
+> 警告：不支持在格式为[`QImage::Format_Indexed8`](https://doc.qt.io/qt-6/qimage.html#Format-enum)的`QImage`上绘制。
+
+##### `bool end()`
+
+结束绘制，释放绘制过程中使用的所有资源。==通常情况下无需手动调用==，因为在`QPainter`析构时会自动调用此函数。
+
+如果 painter 不再处于活动状态，返回`true`；否则返回`false`。
+
+##### `bool isActive() const`
+
+如果调用了`begin()`但还没调用`end()`，返回`true`；否则返回`false`。
+
 ### 渲染提示
 
 ##### `void setRenderHint(QPainter::RenderHint hint, bool on = true)`

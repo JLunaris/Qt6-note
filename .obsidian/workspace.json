@@ -11,10 +11,14 @@
             "id": "50c389c56d734374",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "QAbstractScrollArea"
             }
           }
         ]
@@ -136,12 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "QAbstractScrollArea 的大纲"
             }
           },
           {
@@ -174,9 +179,9 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Qt GUI/C++ Classes/QPainter.md",
     "Qt Widgets/C++ Classes/QWidget.md",
     "Qt Widgets/C++ Classes/QFrame.md",

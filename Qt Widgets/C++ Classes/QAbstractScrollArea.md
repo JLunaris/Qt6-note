@@ -56,3 +56,12 @@ widget->move(topLeft.x() - hvalue, topLeft.y() - vvalue);
 ##### `QWidget *viewport() const`
 
 返回视口控件。
+
+`QScrollArea`中使用[`QScrollArea::widget()`](https://doc.qt.io/qt-6/qscrollarea.html#widget)来获取视口控件的内容。
+
+##### `void setViewport(QWidget *widget)`
+
+将视口设为给定的控件 *widget*。`QAbstractScrollArea`将接管 *widget* 的所有权。
+
+如果 *widget* 是`nullptr`，将自动创建一个新的`QWidget`作为视口。
+

@@ -51,3 +51,43 @@ QString filename = QFileDialog::getSaveFileName(
 );
 ```
 
+##### `static QString getOpenFileName( 参数列表 )`
+
+```cpp
+QString getOpenFileName(
+	QWidget *parent = nullptr,
+	const QString &caption = QString(), // 对话框的标题（如果未指定，则使用默认标题）
+	const QString &dir = QString(), // 工作目录（可以包含文件名，如果包含，表示选择该文件）
+	const QString &filter = QString(), // 只有符合filter要求的文件会被显示
+	QString *selectedFilter = nullptr, // 用于保存用户选择的过滤器（即用户最终选择的过滤器会被传递给selectedFilter）
+	QFileDialog::Options options = Options() // 指定如何运行对话框
+)
+```
+
+==获取用户选择的文件名（要求该文件已存在）==。如果用户按下“取消”，则返回空字符串。它会创建一个模态（modal）文件对话框，父控件为 *parent*。如果 *parent* 不是`nullptr`，对话框会居中显示在父控件上方。
+
+###### 参数说明
+
+1. 参数 *dir*、*filter*、*selectedFilter* 可以是空字符串。
+2. 多个过滤器用`;;`分隔。例如：
+```cpp
+"Images (*.png *.xpm *.jpg);;Text files (*.txt);;XML files (*.xml)"
+```
+3. *options* 参数用于指定如何运行对话框，详见 [QFileDialog::Option](https://doc.qt.io/qt-6/qfiledialog.html#Option-enum)。
+
+###### 平台特定行为
+
+- 在 Windows 和 macOS 上，该函数使用系统文件对话框，而不是 `QFileDialog`。注意 macOS 的系统文件对话框不会显示标题栏。
+- 在 Windows 上，文件对话框会启动一个**阻塞的**模态事件循环，该循环不会派遣任何`QTimer`；并且如果 *parent* 不是`nullptr`，则将对话框定位在父窗口标题栏下方。
+- 在 Unix/X11 上，文件对话框的正常行为是解析并跟随符号链接。例如，如果`/usr/tmp`是指向`/var/tmp`的符号链接，则在进入`/usr/tmp`后，会自动切换到`/var/tmp`。如果 *options* 包含 [DontResolveSymlinks](https://doc.qt.io/qt-6/qfiledialog.html#Option-enum)，则将符号链接视为普通目录，不会解析它们。
+
+###### 案例
+
+```cpp
+QString fileName = QFileDialog::getOpenFileName(
+	this,
+	tr("Open File"),
+	"/home",
+	tr("Images (*.png *.xpm *.jpg)")
+);
+```

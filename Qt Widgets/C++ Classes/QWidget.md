@@ -166,13 +166,13 @@ https://doc.qt.io/qt-6/qwidget.html
 
 向控件的**动作列表**追加动作 *action*。
 
-> 动作列表：每个`QWidget`都有一个`QAction`列表。这些`QAction`有多种图形化的呈现方式（如菜单项、工具栏按钮等），具体取决于控件的实现。通过`actions()`可以获取该列表，该列表默认用于创建上下文菜单（`QMenu`）。
+> 动作列表：每个`QWidget`都有一个`QAction`列表。这些`QAction`有多种图形化的呈现方式（如菜单项、工具栏按钮等），具体取决于控件的实现。通过`actions()`可以获取该列表，该列表默认用于创建**上下文菜单**（`QMenu`）。
 
 > 上下文菜单：界面中右击鼠标会出现的俗称的“右键菜单”。因为它根据鼠标位置来判断弹出什么菜单，所以称为上下文菜单。
 
 `QWidget`中同一动作只能存在一份；尝试添加一个已存在的动作不会导致其被再次添加。
 
-==*action* 的所有权不会被转移给该`QWidget`==。
+==调用此函数不会将 *action* 的所有权转移给该`QWidget`==。
 
 ##### `void insertAction(QAction *before, QAction *action)`
 

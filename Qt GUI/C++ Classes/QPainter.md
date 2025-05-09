@@ -42,7 +42,7 @@ void MyWidget::paintEvent(QPaintEvent *)
 
 由于该构造函数无法在 painter 初始化失败时提供反馈，因此在**外部设备**（如 printer）上绘制时应使用`begin()`和`end()`。
 
-##### `~QPainter()`
+##### `~QPainter() noexcept`
 
 销毁 painter。
 

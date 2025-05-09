@@ -80,3 +80,7 @@ QSettings settings {"Moose Tech", "Facturo-Pro"};
 ```
 
 省略的 *scope* 参数被设为[`QSettings::UserScope`](https://doc.qt.io/qt-6/qsettings.html#Scope-enum)。
+
+##### `virtual ~QSettings() noexcept`
+
+销毁`QSettings`对象。任何未保存的更改最终都会写入到永久存储中。

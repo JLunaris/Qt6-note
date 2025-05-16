@@ -58,6 +58,67 @@ https://doc.qt.io/qt-6/qwidget.html
 |  void | resize(int _w_, int _h_) |
 |  void | resize(const QSize &)    |
 
+### maximumSize : QSize
+
+该属性保存控件的最大尺寸。默认值：`QSize(16777215, 16777215)`。
+
+ > 注意：[`QWIDGETSIZE_MAX`](https://doc.qt.io/qt-6/qwidget.html#QWIDGETSIZE_MAX)宏限制了控件的最大尺寸。
+ 
+| 访问函数： |                                    |
+| ----: | ---------------------------------- |
+| QSize | maximumSize() const                |
+|  void | setMaximumSize(const QSize &)      |
+|  void | setMaximumSize(int maxw, int maxh) |
+
+#### maximumWidth : int
+
+对应 [[QWidget#Properties#maximumSize QSize]] 的宽度值。
+
+| 访问函数： |                           |
+| ----: | ------------------------- |
+|   int | maximumWidth() const      |
+|  void | setMaximumWidth(int maxw) |
+
+#### maximumHeight : int
+
+对应 [[QWidget#Properties#maximumSize QSize]] 的高度值。
+
+| 访问函数： |                            |
+| ----: | -------------------------- |
+|   int | maximumHeight() const      |
+|  void | setMaximumHeight(int maxh) |
+
+### minimumSize : QSize
+
+1. 该属性保存控件的最小尺寸。
+2. 如果控件的当前尺寸小于这个最小尺寸，它会被强制设为该最小尺寸。
+3. 该函数设置的最小尺寸会覆盖`QLayout`定义的最小尺寸。==要取消最小尺寸限制，请将该属性设为`QSize(0, 0)`==。
+4. 默认值：`QSize(0, 0)`。
+
+| 访问函数： |                                    |
+| ----: | ---------------------------------- |
+| QSize | minimumSize() const                |
+|  void | setMinimumSize(const QSize &)      |
+|  void | setMinimumSize(int minw, int minh) |
+
+#### minimumWidth : int
+
+对应 [[QWidget#Properties#minimumSize QSize]] 的宽度值。
+
+| 访问函数： |                           |
+| ----: | ------------------------- |
+|   int | minimumWidth() const      |
+|  void | setMinimumWidth(int minw) |
+
+#### minimumHeight : int
+
+对应 [[QWidget#Properties#minimumSize QSize]] 的高度值。
+
+| 访问函数： |                            |
+| ----: | -------------------------- |
+|   int | minimumHeight() const      |
+|  void | setMinimumHeight(int minh) |
+
 ### autoFillBackground : bool
 
 1. 该属性保存是否自动填充控件**背景**。
@@ -99,7 +160,7 @@ https://doc.qt.io/qt-6/qwidget.html
 
 该控件的**所有子控件会被先删除**。如果该控件是主控件，则应用程序退出。
 
-### 位置和大小
+### 位置和尺寸
 
 ##### `void setGeometry(int x, int y, int w, int h)`
 
@@ -118,6 +179,26 @@ https://doc.qt.io/qt-6/qwidget.html
 等价于`resize(QSize(w, h))`。
 
 见[[QWidget#Properties#size QSize]]
+
+##### `void setFixedSize(const QSize &s)`
+
+将控件的**最小**和**最大**尺寸都设为 *s*，从而防止其变大或变小。
+
+这会覆盖`QLayout`设置的默认尺寸约束。
+
+如果希望控件具有基于其内容的、固定的尺寸，可调用`QLayout::setSizeConstraint(QLayout::SetFixedSize)`。
+
+##### `void setMaximumSize(int maxw, int maxh)`
+
+等价于`setMaximumSize(QSize(maxw, maxh))`。
+
+见[[QWidget#Properties#maximumSize QSize]]
+
+##### `void setMinimumSize(int minw, int minh)`
+
+等价于`setMinimumSize(QSize(minw, minh))`。
+
+见[[QWidget#Properties#minimumSize QSize]]
 
 ### 坐标转换
 

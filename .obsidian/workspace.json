@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt GUI/C++ Classes/QColor.md",
+                "file": "Qt GUI/C++ Classes/QLinearGradient.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QColor"
+              "title": "QLinearGradient"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Qt GUI/C++ Classes/QColor.md",
+                "file": "Qt GUI/C++ Classes/QLinearGradient.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "QColor 的反向链接列表"
+              "title": "QLinearGradient 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Qt GUI/C++ Classes/QColor.md",
+                "file": "Qt GUI/C++ Classes/QLinearGradient.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "QColor 的出链列表"
+              "title": "QLinearGradient 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt GUI/C++ Classes/QColor.md",
+                "file": "Qt GUI/C++ Classes/QLinearGradient.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QColor 的大纲"
+              "title": "QLinearGradient 的大纲"
             }
           },
           {
@@ -181,32 +181,39 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QGradient.md",
+    "Qt GUI/C++ Classes/QLinearGradient.md",
+    "Qt GUI/C++ Classes/QImage.md",
+    "Qt GUI/C++ Classes/QInputEvent.md",
+    "Qt GUI/C++ Classes/QLabel.md",
     "Qt GUI/C++ Classes/QColor.md",
-    "Qt Widgets/C++ Classes/QFrame.md",
-    "Qt Widgets/C++ Classes/QGraphicsScene.md",
-    "Qt GUI/C++ Classes/QPixmap.md",
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt Core/C++ Classes/QSettings.md",
-    "Qt Core/C++ Classes/QStandardPaths.md",
-    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt GUI/C++ Classes/QRegion.md",
     "Qt GUI/C++ Classes/QScreen.md",
-    "Qt GUI/C++ Classes/QAction.md",
-    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
-    "Qt Widgets/C++ Classes/QFileDialog.md",
+    "Qt Widgets/C++ Classes/QFrame.md",
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Qt GUI/C++ Classes/QMouseEvent.md",
-    "Qt GUI/C++ Classes/QSinglePointEvent.md",
-    "Qt Widgets/C++ Classes/QDialog.md",
-    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
-    "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
-    "Qt Widgets/Graphics View Framework.md",
-    "Qt Widgets/Window and Dialog Widgets.md",
-    "Qt Core/The Meta-Object System.md",
-    "Qt Core/C++ Classes/QRectF.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt Widgets/C++ Classes/QFileDialog.md",
     "Qt Core/C++ Classes/QObject.md",
     "Qt Core/C++ Classes/QRect.md",
+    "Qt Core/Signals & Slots.md",
+    "Qt Core/C++ Classes/QStandardPaths.md",
+    "Qt Core/C++ Classes/QSettings.md",
+    "Qt Core/C++ Classes/QRectF.md",
+    "Qt GUI/C++ Classes/QPixmap.md",
+    "Qt GUI/C++ Classes/QSinglePointEvent.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
+    "Qt GUI/C++ Classes/QEvent.md",
+    "Pasted image 20250517155722.png",
+    "image/Pasted image 20250517162538.png",
+    "image/Pasted image 20250517160700.png",
+    "image/Pasted image 20250517155722.png",
+    "Pasted image 20250517160700.png",
+    "Pasted image 20250517162538.png",
+    "Pasted image 20250517160642.png",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Qt GUI/C++ Classes/QAction.md",
+    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
     "image/Pasted image 20250506173600.png",
     "image/Pasted image 20250421173004.png",
     "未命名.canvas",
@@ -215,9 +222,6 @@
     "Qt Core/C++ Classes",
     "Qt Core",
     "image",
-    "image/Pasted image 20250408101013.png",
-    "Pasted image 20250408101006.png",
-    "Pasted image 20250408100928.png",
     "Qt GUI/C++ Classes",
     "Qt Widgets/C++ Classes",
     "Qt GUI",

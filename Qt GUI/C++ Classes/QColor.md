@@ -25,3 +25,53 @@ https://doc.qt.io/qt-6/qcolor.html
 
 7. [`lighter()`](https://doc.qt.io/qt-6/qcolor.html#lighter)、[`darker()`](https://doc.qt.io/qt-6/qcolor.html#darker)：返回当前颜色的一个更亮/更暗的副本。
 
+8. [`isValid()`](https://doc.qt.io/qt-6/qcolor.html#isValid)：返回`QColor`是否完全合法。例如一个 RGB 颜色，如果某个值超出范围就是不合法的。处于性能考虑，`QColor`不会主动检查颜色是否合法，使用无效颜色的结果是未定义的。
+
+9. 颜色的各个分量可以单独获取，例如使用[`red()`](https://doc.qt.io/qt-6/qcolor.html#red)、[`hue()`](https://doc.qt.io/qt-6/qcolor.html#hue)、[`cyan()`](https://doc.qt.io/qt-6/qcolor.html#cyan)。也可以使用[`getRgb()`](https://doc.qt.io/qt-6/qcolor.html#getRgb)、[`getHsv()`](https://doc.qt.io/qt-6/qcolor.html#getHsv)、[`getCmyk()`](https://doc.qt.io/qt-6/qcolor.html#getCmyk)一次性获取所有分量。如果使用的是 RGB 颜色模型，还可通过[`rgb()`](https://doc.qt.io/qt-6/qcolor.html#rgb)获取所有分量值。
+
+10. 相关的非成员：`QRgb`是`unsigned int`的类型别名，表示 RGB 值三元组`(r, g, b)`。此外，它还可以包含 alpha通道的值（更多信息见[Alpha-Blended Drawing](https://doc.qt.io/qt-6/qcolor.html#alpha-blended-drawing)）。
+
+11. `QColor`是平台无关、设备无关的。[`QColormap`](https://doc.qt.io/qt-6/qcolormap.html)类将颜色映射到硬件上。
+
+### 整数与浮点数精度
+
+`QColor`支持浮点数精度，所有的颜色分量函数都有浮点数版本，如`getRgbF()`、`hueF()`、`fromCmykF()`。注意，由于颜色分量使用 **16-bit整数** 存储，通过例如`setRgbF()`设置的值与`getRgbF()`返回的值，两者之间可能存在因舍入而导致的**微小偏差**。
+
+基于**整数**的函数，数值范围为 ==0~255==（除了`hue()`的数值范围为 ==0~359==）；基于**浮点数**的函数，数值范围为 ==0.0~1.0==。
+
+### The HSV Color Model
+
+RGB 模型是面向硬件的，其表示方式与多数显示器的显示原理对应。相比之下，HSV 以更符合人类色彩感知的方式表示颜色，如“更鲜艳”、“更暗”、“互补色”等关系在 HSV 中很容易表达，但在 RGB 中则难以表述。 
+
+HSV 具有3个分量：
+
+- H：色相（hue）。对于彩色（即非灰色）其取值范围为 ==0~359==；对于灰色无意义。它表示色轮上的度数，如图所示。  
+![[Pasted image 20250517155722.png]]
+- S：饱和度（saturation），范围为 ==0~255==，数值越大色彩越鲜艳。  
+  ![[Pasted image 20250517160700.png]]
+- V：值（value），范围为 ==0~255==，表示颜色的 **亮度（lightness）** 或 **明度（brightness）**。
+  ![[Pasted image 20250517162538.png]]
+
+==对于非彩色，Qt 返回的色相值为 -1==。==如果传递的色相值过大，Qt 会强制它进入范围==，例如 360 或 720 被视为 0，540 被视为 180。
+
+除了标准 HSV 模型外，Qt 还提供了 alpha 通道以支持 [alpha-blended drawing](https://doc.qt.io/qt-6/qcolor.html#alpha-blended-drawing)。
+
+# Public Functions
+
+# Static Public Members
+
+### 构造`QColor`
+
+##### `static QColor fromHsv(int h, int s, int v, int a = 255)`
+
+返回由 HSV 颜色值构造的`QColor`。
+
+_h_ (hue), _s_ (saturation), _v_ (value), and _a_ (alpha-channel, i.e. transparency).
+
+*s*、*v*、*a* 都必须在 ==0~255== 范围内，*h* 必须在 ==0~359== 范围内。
+
+##### `static QColor fromHsvF(float h, float s, float v, float a = 1.0)`
+
+重载版本。所有值都必须在 ==0.0~1.0== 范围内。
+
+

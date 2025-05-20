@@ -74,4 +74,25 @@ _h_ (hue), _s_ (saturation), _v_ (value), and _a_ (alpha-channel, i.e. tr
 
 重载版本。所有值都必须在 ==0.0~1.0== 范围内。
 
+##### `static QColor fromString(QAnyStringView name) noexcept`
+
+返回从 *name* 解析得到的 RGB `QColor`，*name* 为以下格式之一：
+
+- `#RGB` (each of R, G, and B is a single hex digit)
+- `#RRGGBB`
+- `#AARRGGBB` (Since 5.2)
+- `#RRRGGGBBB`
+- `#RRRRGGGGBBBB`
+- 由 W3C 提供的 **SVG 颜色关键字名称**列表中的名称，如`"steelblue"`或`"gainsboro"`。这些颜色名称适用于所有平台。请注意，这些颜色名称与`Qt::GlobalColor`枚举中定义的颜色不同，如`"green"`和`Qt::green`不表示同一个颜色。
+- `transparent` - representing the absence of a color.
+
+如果 *name* 无法被解析，返回无效的颜色（可通过`isValid()`判断颜色是否有效）。
+
+### 其他
+
+##### `static bool isValidColorName(QAnyStringView name) noexcept`
+
+如果 *name* 是有效颜色的名称，且可用于构造有效的`QColor`对象，返回`true`。否则返回`false`。
+
+它使用的算法与静态方法`fromString()`一样。
 

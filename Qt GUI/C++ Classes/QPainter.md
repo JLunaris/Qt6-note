@@ -88,6 +88,8 @@ painter2->begin(myWidget); // impossible - only one painter at a time
 
 如果`on`为`true`，则在 painter 上设置给定的渲染提示`hint`；否则清除该渲染提示。
 
+相关内容：[QPainter::RenderHint](https://doc.qt.io/qt-6/qpainter.html#RenderHint-enum)。
+
 ##### `void setRenderHints(QPainter::RenderHints hints, bool on = true)`
 
 如果`on`为`true`，则在 painter 上设置给定的一组渲染提示`hints`；否则清除这些渲染提示。

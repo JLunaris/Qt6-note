@@ -2,7 +2,7 @@ https://doc.qt.io/qt-6/qgradient.html
 
 `QGradient`类与`QBrush`结合使用，以指定渐变填充。
 
-- Inherited By：[[QLinearGradient]]，[QConicalGradient](https://doc.qt.io/qt-6/qconicalgradient.html)，[QRadialGradient](https://doc.qt.io/qt-6/qradialgradient.html)
+- Inherited By：[[QLinearGradient]]，[[QConicalGradient]]，[[QRadialGradient]]
 
 # Detailed Description
 
@@ -41,6 +41,17 @@ Qt 支持3种类型的渐变填充：
 返回停止点列表。
 
 如果未指定任何停止点，则默认使用从 **0处的黑色** 到 **1处的白色** 的渐变。
+
+### 蔓延方法
+##### `void setSpread(QGradient::Spread method)`
+
+指定渐变的蔓延方法 *method*。
+
+注意：此函数仅对**线性**和**径向**渐变有效果。
+
+##### `QGradient::Spread spread() const`
+
+返回渐变的蔓延方法。默认为[PadSpread](https://doc.qt.io/qt-6/qgradient.html#Spread-enum)（即填充蔓延）。
 
 ### 其他
 ##### `QGradient::Type type() const`

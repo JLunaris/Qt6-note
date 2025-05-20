@@ -11,9 +11,9 @@ https://doc.qt.io/qt-6/qmouseevent.html
 
 鼠标移动事件仅在**按住鼠标按钮移动**时触发，除非使用`QWidget::setMouseTracking()`开启鼠标追踪。
 
-#### 鼠标抓住机制
+#### ==鼠标抓住机制==
 
-当鼠标按钮在**控件内**被按下时，Qt 自动抓住鼠标，控件将持续接收鼠标事件（即使鼠标已经移动到了控件外），直到最后鼠标按钮松开。
+当鼠标按钮在**控件内**被**按下**时，Qt 自动抓住鼠标，控件将持续接收鼠标事件（即使鼠标已经移动到了控件外），直到最后鼠标按钮松开。
 
 #### 事件传播
 
@@ -26,4 +26,5 @@ https://doc.qt.io/qt-6/qmouseevent.html
 - `modifiers()`函数（继承自`QInputEvent`）可以获取**键盘修饰键**（keyboard modifier keys）
 - `position()`函数返回的光标坐标是相对于**接收该鼠标事件的widget或item**的。如果你希望把控件的移动作为鼠标事件的结果，请使用`globalPosition()`返回的全局坐标，或使用`QWidget::mapToParent()`将`position()`返回的坐标转为相对于父控件的坐标，这样可以避免移动控件时发生抖动。
 - `QWidget::setEnabled()`函数可用于启用或禁用控件接收鼠标/键盘事件。
+
 # Public Functions

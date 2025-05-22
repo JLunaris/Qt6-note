@@ -269,6 +269,32 @@ https://doc.qt.io/qt-6/qwidget.html
 
 返回控件的动作列表（可能为空）。
 
+### 布局
+
+##### `void setLayout(QLayout *layout)`
+
+将控件的布局管理器设为 *layout*。==`QWidget`会接管 *layout* 的所有权==。
+
+An alternative to calling this function is to ==pass this widget to the layout's constructor==.
+
+如果控件已经安装了布局管理器，则不允许再安装另一个，必须先 delete 掉现有的布局管理器（由`layout()`返回）才能安装新布局。
+
+如果 *layout* 原本是其他控件的布局管理器，`setLayout()`将会重新设置其父对象，并使其成为此控件的布局管理器。
+
+案例：
+
+```cpp
+QVBoxLayout *layout = new QVBoxLayout;
+layout->addWidget(formWidget);
+setLayout(layout);
+```
+
+##### `QLayout *layout() const`
+
+返回安装到此控件的布局管理器，如果没有安装则返回`nullptr`。
+
+将控件的子控件添加到布局管理器中，布局管理器会自动设置它们的几何属性。
+
 # Protected Functions
 
 ##### `virtual void resizeEvent(QResizeEvent *event)`

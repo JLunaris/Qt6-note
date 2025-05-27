@@ -2,6 +2,28 @@ https://doc.qt.io/qt-6/qobject.html
 
 QObject类是所有Qt对象的基类。
 
+# Public Functions
+
+### 信号的阻塞
+
+##### `bool blockSignals(bool block) noexcept`
+
+如果 *block* 为`true`，该对象发出的信号会被阻塞（即：发出信号不会导致任何槽函数被调用）。如果 *block* 为`false`，这样的阻塞将不会发生。
+
+返回值为调用该函数前`signalsBlocked()`的值。
+
+注意，==[`destroyed()`](https://doc.qt.io/qt-6/qobject.html#destroyed)信号不会被阻塞==。
+
+阻塞期间发出的信号不会被缓存（即：阻塞期间发出的信号，在解除阻塞后不会进行补发）。
+
+**See also** [[QSignalBlocker]].
+
+##### `bool signalsBlocked() const noexcept`
+
+如果信号被阻塞，返回`true`；否则返回`false`。
+
+默认情况下信号不会被阻塞。
+
 # Macros
 
 ### Q_OBJECT

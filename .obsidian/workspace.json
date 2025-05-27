@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt Core/C++ Classes/QSignalBlocker.md",
+                "file": "Qt Widgets/C++ Classes/QWidget.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QSignalBlocker"
+              "title": "QWidget"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt Core/C++ Classes/QSignalBlocker.md",
+                "file": "Qt Widgets/C++ Classes/QWidget.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QSignalBlocker 的大纲"
+              "title": "QWidget 的大纲"
             }
           },
           {
@@ -181,34 +181,34 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt Core/C++ Classes/QSignalBlocker.md",
+    "Qt Widgets/C++ Classes/QLayout.md",
     "Qt Widgets/C++ Classes/QSpinBox.md",
-    "Qt Widgets/C++ Classes/QAbstractSpinBox.md",
     "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QVector2D.md",
+    "Qt Widgets/C++ Classes/QBoxLayout.md",
+    "Qt Widgets/C++ Classes/QGridLayout.md",
+    "Qt Core/C++ Classes/QSignalBlocker.md",
+    "Qt Core/C++ Classes/QtMath.md",
+    "Qt Core/C++ Classes/QObject.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Qt Widgets/C++ Classes/QAbstractSpinBox.md",
     "Qt Widgets/C++ Classes/QFormLayout.md",
     "image/Pasted image 20250527101443.png",
-    "Qt Widgets/C++ Classes/QLayout.md",
-    "Qt Widgets/C++ Classes/QGridLayout.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
     "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Qt Widgets/C++ Classes/QFrame.md",
-    "Qt Widgets/C++ Classes/QBoxLayout.md",
     "Qt Core/Signals & Slots.md",
     "Qt Core/The Meta-Object System.md",
     "Qt GUI/C++ Classes/QColor.md",
     "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
     "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
     "Qt Widgets/C++ Classes/QFileDialog.md",
-    "Qt Core/C++ Classes/QObject.md",
     "Qt GUI/C++ Classes/QLinearGradient.md",
     "Qt GUI/C++ Classes/QMouseEvent.md",
     "Overviews/Using the Meta-Object Compiler (moc).md",
     "未命名.md",
     "Overviews",
     "Qt Widgets/Window and Dialog Widgets.md",
-    "Qt Widgets/Graphics View Framework.md",
-    "Qt GUI/C++ Classes/QRadialGradient.md",
     "Pasted image 20250517155722.png",
     "image/Pasted image 20250517162538.png",
     "image/Pasted image 20250517160700.png",

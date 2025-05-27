@@ -138,6 +138,18 @@ https://doc.qt.io/qt-6/qwidget.html
 |  bool | autoFillBackground() const          |
 |  void | setAutoFillBackground(bool enabled) |
 
+### styleSheet : QString
+
+该属性保存控件的样式表。
+
+> 警告：Qt 样式表尚不支持定制[`QStyle`](https://doc.qt.io/qt-6/qstyle.html)子类，我们计划在后续版本中解决此问题。
+
+| 访问函数      |                                            |
+| --------- | ------------------------------------------ |
+| `QString` | `styleSheet() const`                       |
+| `void`    | `setStyleSheet(const QString &styleSheet)` |
+
+
 # Public Functions
 
 ### 构造和析构

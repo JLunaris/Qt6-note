@@ -1,0 +1,40 @@
+https://doc.qt.io/qt-6/qsvgrenderer.html
+
+`QSvgRenderer`类用于将 SVG 文件的内容绘制在绘制设备上。
+
+- Inherits：[[QObject]]
+- CMake：
+```cmake
+find_package(Qt6 REQUIRED COMPONENTS Svg)
+target_link_libraries(mytarget PRIVATE Qt6::Svg)
+```
+
+注意：该类中的所有函数都是[可重入的](https://doc.qt.io/qt-6/threads-reentrancy.html)。
+
+# Public Functions
+
+### 构造和析构
+
+##### `QSvgRenderer(QObject *parent = nullptr)`
+
+构造一个渲染器，父对象为 *parent*。
+
+##### `QSvgRenderer(const QString &filename, QObject *parent = nullptr)`
+
+构造一个渲染器，父对象为 *parent*，并加载 *filename* 指代的 SVG 文件的内容。
+
+##### `virtual ~QSvgRenderer() noexcept`
+
+销毁该渲染器。
+
+### 尺寸
+
+##### `QSize defaultSize() const`
+
+返回文件内容的默认尺寸。
+
+# Public Slots
+
+##### `bool load(const QString &filename)`
+
+加载由 *filename* 指定的 SVG 文件，如果成功解析内容则返回`true`，否则返回`false`。

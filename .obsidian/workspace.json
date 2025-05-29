@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "04bd197d853c48f2",
+        "id": "2528eaa960571c8a",
         "type": "tabs",
         "children": [
           {
-            "id": "86c7ccb23c43c98b",
+            "id": "b371c1410258bee6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QWidget.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QWidget"
+              "title": "QGraphicsScene"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QWidget.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QWidget 的大纲"
+              "title": "QGraphicsScene 的大纲"
             }
           },
           {
@@ -166,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5
+    "width": 368.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,34 +181,37 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt Widgets/C++ Classes/QLayout.md",
-    "Qt Widgets/C++ Classes/QSpinBox.md",
-    "Qt Widgets/C++ Classes/QWidget.md",
-    "Qt GUI/C++ Classes/QVector2D.md",
-    "Qt Widgets/C++ Classes/QBoxLayout.md",
     "Qt Widgets/C++ Classes/QGridLayout.md",
-    "Qt Core/C++ Classes/QSignalBlocker.md",
-    "Qt Core/C++ Classes/QtMath.md",
-    "Qt Core/C++ Classes/QObject.md",
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt Widgets/C++ Classes/QAbstractSpinBox.md",
-    "Qt Widgets/C++ Classes/QFormLayout.md",
-    "image/Pasted image 20250527101443.png",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
     "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "Qt Widgets/C++ Classes/QGraphicsObject.md",
     "Qt Widgets/C++ Classes/QFrame.md",
-    "Qt Core/Signals & Slots.md",
-    "Qt Core/The Meta-Object System.md",
-    "Qt GUI/C++ Classes/QColor.md",
-    "Qt Widgets/Qt Style Sheets/The Style Sheet Syntax.md",
-    "Qt Widgets/Qt Style Sheets/Using Style Sheets.md",
     "Qt Widgets/C++ Classes/QFileDialog.md",
-    "Qt GUI/C++ Classes/QLinearGradient.md",
-    "Qt GUI/C++ Classes/QMouseEvent.md",
-    "Overviews/Using the Meta-Object Compiler (moc).md",
-    "未命名.md",
+    "Qt Widgets/C++ Classes/QDialog.md",
+    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
+    "Qt Widgets/C++ Classes/QAbstractSpinBox.md",
+    "Qt Widgets/C++ Classes/QBoxLayout.md",
+    "Qt Widgets/C++ Classes/QGraphicsItem.md",
+    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
+    "Qt Core/C++ Classes/QObject.md",
+    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
+    "Qt GUI/C++ Classes/QPainter.md",
+    "Modules/Qt SVG/C++ Classes",
+    "Modules/Qt SVG.md",
+    "Modules/Qt SVG",
+    "Qt Widgets/未命名.md",
+    "Modules",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt Widgets/C++ Classes/QSpinBox.md",
+    "Qt Widgets/C++ Classes/QMainWindow.md",
+    "Qt Widgets/C++ Classes/QLayout.md",
+    "Qt GUI/C++ Classes/QVector2D.md",
+    "Qt Core/C++ Classes/QSignalBlocker.md",
+    "Qt Core/C++ Classes/QtMath.md",
+    "Qt Widgets/C++ Classes/QFormLayout.md",
+    "image/Pasted image 20250527101443.png",
+    "Qt Core/Signals & Slots.md",
     "Overviews",
-    "Qt Widgets/Window and Dialog Widgets.md",
     "Pasted image 20250517155722.png",
     "image/Pasted image 20250517162538.png",
     "image/Pasted image 20250517160700.png",
@@ -224,9 +227,6 @@
     "Qt Core",
     "image",
     "Qt GUI/C++ Classes",
-    "Qt Widgets/C++ Classes",
-    "Qt GUI",
-    "Qt Widgets",
-    "QWidget"
+    "Qt Widgets/C++ Classes"
   ]
 }

@@ -255,6 +255,7 @@ https://doc.qt.io/qt-6/qwidget.html
 
 ### 动作
 
+#### actions
 ##### `void addAction(QAction *action)`
 
 向控件的**动作列表**追加动作 *action*。
@@ -280,6 +281,21 @@ https://doc.qt.io/qt-6/qwidget.html
 ##### `QList<QAction *> actions() const`
 
 返回控件的动作列表（可能为空）。
+
+#### convenience action factories
+
+```cpp
+QAction *addAction(const QString &text);
+QAction *addAction(const QIcon &icon, const QString &text);
+QAction *addAction(const QIcon &icon, const QString &text, const QKeySequence &shortcut);
+QAction *addAction(const QString &text, const QKeySequence &shortcut);
+```
+
+这些便捷函数创建一个新动作，使用文本 *text*、图标 *icon*、快捷键 *shortcut*。
+
+这些函数会将新创建的动作添加到控件的动作列表中，并返回该动作。
+
+==`QWidget`将接管此动作的所有权==。
 
 ### 布局
 

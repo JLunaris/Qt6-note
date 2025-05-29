@@ -4,8 +4,52 @@ https://doc.qt.io/qt-6/qgraphicsscene.html
 
 - Inherits：[[QObject]]
 
+# Detailed Description
+
+场景的 **边界矩形（bounding rect）** 由`setSceneRect()`设置。图元可以放置在场景中的任意位置，并且**默认情况下场景的尺寸是无限制的**。场景矩形仅用于内部记录，维护场景的图元索引。==如果未设置场景矩形，`QGraphicsScene`将使用所有图元的边界区域（即`itemsBoundingRect()`）作为场景矩形==。然而，`itemsBoundingRect()`是一个开销较大的函数，因为它需要收集场景中每个图元的位置数据。因此，在操作大型场景时，**应始终手动设置场景矩形**以提高性能。
+
+# Properties
+
+### sceneRect : QRectF
+
+该属性保存场景矩形，即场景的边界矩形。
+
+场景矩形定义了场景的范围。它主要用于以下两点：
+
+1. `QGraphicsView` 使用它来确定视图的默认可滚动区域
+2. `QGraphicsScene` 使用它来管理图元索引
+
+如果未设置，或设为空矩形，`sceneRect()`将返回自场景创建以来所有图元的最大边界矩形（即一个在场景中添加或移动图元时会增大，但从不会缩小的矩形）。
+
+| 访问函数     |                                                    |
+| -------- | -------------------------------------------------- |
+| `QRectF` | `sceneRect() const`                                |
+| `void`   | `setSceneRect(const QRectF &rect)`                 |
+| `void`   | `setSceneRect(qreal x, qreal y, qreal w, qreal h)` |
+
 # Public Functions
 
+### 构造和析构
+
+##### `QGraphicsScene(QObject *parent = nullptr)`
+
+构造一个`QGraphicsScene`对象。*parent* 被传递给`QWidget`的构造函数。
+
+##### `QGraphicsScene(const QRectF &sceneRect, QObject *parent = nullptr)`
+
+构造一个`QGraphicsScene`对象，使用 *sceneRect* 作为其场景矩形。*parent* 被传递给`QWidget`的构造函数。
+
+##### `QGraphicsScene(qreal x, qreal y, qreal width, qreal height, QObject *parent = nullptr)`
+
+等价于`QGraphicsScene(QRectF {x, y, width, height}, parent)`。*parent* 被传递给`QWidget`的构造函数。
+
+##### `virtual ~QGraphicsScene() noexcept`
+
+销毁场景对象前，先从该场景中**移除并删除所有图元**。
+
+此外，该场景对象会从应用程序的**全局场景列表**中移除，并且会从所有**与之关联的视图**中移除。
+
+### 渲染
 ##### `void render( 参数列表 )`
 
 ```Cpp
@@ -33,4 +77,16 @@ scene.render(&painter);
 如果 *source* 是空矩形，则使用`sceneRect()`确定渲染区域。如果 *target* 是空矩形，则使用 *painter* 的绘制设备的尺寸。
 
 *source* 矩形内容将根据 *aspectRatioMode* 进行转换，以适应 *target* 矩形。默认情况下，纵横比保持不变，*source* 被缩放以适应 *target* 。
+
+# Protected Functions
+
+##### `virtual void drawBackground(QPainter *painter, const QRectF &rect)`
+
+使用 *painter* 画场景的**背景**（在任何图元和前景被画前）。==重写该函数来定制场景的背景==。
+
+所有绘制都是在**场景坐标系**（scene coordinates）做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
+
+如果你只是想为背景定义颜色、纹理或渐变，可以直接调用`setBackgroundBrush()`，无需重写该函数。
+
+##### `virtual void drawForeground(QPainter *painter, const QRectF &rect)`
 

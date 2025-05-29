@@ -4,7 +4,102 @@ https://doc.qt.io/qt-6/qgraphicsview.html
 
 - Inherits：[[QAbstractScrollArea]]
 
+# Detailed Description
+
+`QGraphicsView`将`QGraphicsScene`的内容在可滚动视口（scrollable viewport）中可视化。`QGraphicsView`是 [Graphics View Framework](https://doc.qt.io/qt-6/graphicsview.html) 的一部分。
+
+要将场景可视化，请构造一个`QGraphicsView`对象，然后将场景的指针传递给它的构造函数。也可以稍后调用`setScene()`来设置场景。调用`QWidget::show()`后，视图默认会==滚动到场景的中心==，并显示当前可见的所有图元。例如：
+
+```cpp
+QGraphicsScene scene;
+scene.addText("Hello, world!");
+
+QGraphicsView view(&scene);
+view.show();
+```
+
+你可以通过滚动条显式滚动到场景中的任意位置，或者调用[`centerOn()`](https://doc.qt.io/qt-6/qgraphicsview.html#centerOn)。传递一个点给[`centerOn()`](https://doc.qt.io/qt-6/qgraphicsview.html#centerOn)，`QGraphicsView`会滚动其视口**使该点位于视口中心**；传递一个图元给[`centerOn()`](https://doc.qt.io/qt-6/qgraphicsview.html#centerOn)，`QGraphicsView`会滚动其视口**使该图元的中心点位于视口中心**。如果你只想保证某个区域可见（但不必须居中），则调用[`ensureVisible()`](https://doc.qt.io/qt-6/qgraphicsview.html#ensureVisible)。
+
+`QGraphicsView`可用于显示整个场景，或其中一部分。默认情况下，视图首次显示时会自动检测可视区域（通过调用 `QGraphicsScene::itemsBoundingRect()`）。如果你想自己设置可视区域矩形，可以调用[`setSceneRect()`](https://doc.qt.io/qt-6/qgraphicsview.html#sceneRect-prop)，这会适当调整滚动条的范围。注意，虽然场景的尺寸可以几乎无限大，但滚动条的范围永远不会超出整数范围（`INT_MIN`，`INT_MAX`）。
+
+
+# Properties
+
+### backgroundBrush : QBrush
+
+该属性保存场景的背景画刷。
+
+此属性为该视图中的场景设置背景画刷。它将==覆盖场景自身的背景画刷设置==，并定义[`drawBackground()`](https://doc.qt.io/qt-6/qgraphicsview.html#drawBackground)的行为。要为该视图提供**自定义的背景绘制**，可以重写[`drawBackground()`](https://doc.qt.io/qt-6/qgraphicsview.html#drawBackground)。
+
+默认的背景画刷为`Qt::NoBrush`。
+
+| 访问函数     |                                           |
+| -------- | ----------------------------------------- |
+| `QBrush` | `backgroundBrush() const`                 |
+| `void`   | `setBackgroundBrush(const QBrush &brush)` |
+
+### foregroundBrush : QBrush
+
+该属性保存场景的前景画刷。
+
+此属性为该视图中的场景设置前景画刷。它将==覆盖场景自身的前景画刷设置==，并定义[`drawForeground()`](https://doc.qt.io/qt-6/qgraphicsview.html#drawForeground)的行为。要为该视图提供**自定义的前景绘制**，可以重写[`drawForeground()`](https://doc.qt.io/qt-6/qgraphicsview.html#drawForeground)。
+
+默认的前景画刷为`Qt::NoBrush`。
+
+| 访问函数     |                                           |
+| -------- | ----------------------------------------- |
+| `QBrush` | `foregroundBrush() const`                 |
+| `void`   | `setForegroundBrush(const QBrush &brush)` |
+
+### sceneRect : QRectF
+
+该属性保存该视图查看的场景的区域。
+
+场景矩形定义了场景的范围，对视图而言，表示你可以使用滚动条导航的场景区域。
+
+==如果未设置，或设为空矩形，则该属性的值与`QGraphicsScene::sceneRect()`相同，并且会随`QGraphicsScene::sceneRect()`的改变而改变==。否则，视图的场景矩形不受场景影响。
+
+注意，虽然场景的尺寸可以几乎无限大，但滚动条的范围永远不会超出整数范围（`INT_MIN`，`INT_MAX`）。当场景大于滚动条的值时，你可以选择使用[`translate()`](https://doc.qt.io/qt-6/qgraphicsview.html#translate)来导航场景。
+
+该属性的默认值：位于原点、宽高为`0`的矩形。
+
+| 访问函数     |                                                    |
+| -------- | -------------------------------------------------- |
+| `QRectF` | `sceneRect() const`                                |
+| `void`   | `setSceneRect(const QRectF &rect)`                 |
+| `void`   | `setSceneRect(qreal x, qreal y, qreal w, qreal h)` |
+
 # Public Functions
+
+### 构造和析构
+
+##### `QGraphicsView(QWidget *parent = nullptr)`
+
+构造一个`QGraphicsView`。*parent* 被传递给`QWidget`的构造函数。
+
+##### `QGraphicsView(QGraphicsScene *scene, QWidget *parent = nullptr)`
+
+构造一个`QGraphicsView`，并将其显示场景设为 *scene*。*parent* 被传递给`QWidget`的构造函数。
+
+##### `virtual ~QGraphicsView() noexcept`
+
+析构函数。
+
+### 场景
+
+##### `void setScene(QGraphicsScene *scene)`
+
+将当前场景设为 *scene*。如果 *scene* 已经被视图查看，则函数不执行任何操作。
+
+当把场景设置到视图上时，[`QGraphicsScene::changed()`](https://doc.qt.io/qt-6/qgraphicsscene.html#changed)信号会自动连接到视图的`updateScene()`槽上，并且视图的滚动条会根据场景的大小自动调整。
+
+==视图不会接管 *scene* 的所有权==。
+
+##### `QGraphicsScene *scene() const`
+
+返回当前视图正在查看的场景。如果当前没有查看任何场景，则返回`nullptr`。
+
+### 渲染
 
 ##### `void render( 参数列表 )`
 
@@ -46,3 +141,9 @@ view.render(&painter,
 如果 *source* 是空矩形，则使用`viewport()->rect()`确定渲染区域。如果 *target* 是空矩形，则使用 *painter* 的绘制设备的尺寸。
 
 *source* 矩形内容将根据 *aspectRatioMode* 进行转换，以适应 *target* 矩形。默认情况下，纵横比保持不变，*source* 被缩放以适应 *target* 。
+
+# Public Slots
+
+##### `void updateScene(const QList<QRectF> &rects)`
+
+安排（schedule）对场景中矩形区域 *rects* 的更新。

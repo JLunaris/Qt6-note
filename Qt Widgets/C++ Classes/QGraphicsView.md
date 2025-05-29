@@ -25,6 +25,24 @@ view.show();
 
 # Properties
 
+### sceneRect : QRectF
+
+该属性保存该视图查看的场景的区域。
+
+场景矩形定义了场景的范围，对视图而言，表示你可以使用滚动条导航的场景区域。
+
+==如果未设置，或设为空矩形，则该属性的值与`QGraphicsScene::sceneRect()`相同，并且会随`QGraphicsScene::sceneRect()`的改变而改变==。否则，视图的场景矩形不受场景影响。
+
+注意，虽然场景的尺寸可以几乎无限大，但滚动条的范围永远不会超出整数范围（`INT_MIN`，`INT_MAX`）。当场景大于滚动条的值时，你可以选择使用[`translate()`](https://doc.qt.io/qt-6/qgraphicsview.html#translate)来导航场景。
+
+该属性的默认值：位于原点、宽高为`0`的矩形。
+
+| 访问函数     |                                                    |
+| -------- | -------------------------------------------------- |
+| `QRectF` | `sceneRect() const`                                |
+| `void`   | `setSceneRect(const QRectF &rect)`                 |
+| `void`   | `setSceneRect(qreal x, qreal y, qreal w, qreal h)` |
+
 ### backgroundBrush : QBrush
 
 该属性保存场景的背景画刷。
@@ -50,24 +68,6 @@ view.show();
 | -------- | ----------------------------------------- |
 | `QBrush` | `foregroundBrush() const`                 |
 | `void`   | `setForegroundBrush(const QBrush &brush)` |
-
-### sceneRect : QRectF
-
-该属性保存该视图查看的场景的区域。
-
-场景矩形定义了场景的范围，对视图而言，表示你可以使用滚动条导航的场景区域。
-
-==如果未设置，或设为空矩形，则该属性的值与`QGraphicsScene::sceneRect()`相同，并且会随`QGraphicsScene::sceneRect()`的改变而改变==。否则，视图的场景矩形不受场景影响。
-
-注意，虽然场景的尺寸可以几乎无限大，但滚动条的范围永远不会超出整数范围（`INT_MIN`，`INT_MAX`）。当场景大于滚动条的值时，你可以选择使用[`translate()`](https://doc.qt.io/qt-6/qgraphicsview.html#translate)来导航场景。
-
-该属性的默认值：位于原点、宽高为`0`的矩形。
-
-| 访问函数     |                                                    |
-| -------- | -------------------------------------------------- |
-| `QRectF` | `sceneRect() const`                                |
-| `void`   | `setSceneRect(const QRectF &rect)`                 |
-| `void`   | `setSceneRect(qreal x, qreal y, qreal w, qreal h)` |
 
 # Public Functions
 
@@ -147,3 +147,26 @@ view.render(&painter,
 ##### `void updateScene(const QList<QRectF> &rects)`
 
 安排（schedule）对场景中矩形区域 *rects* 的更新。
+
+# Protected Functions
+
+##### `virtual void drawBackground(QPainter *painter, const QRectF &rect)`
+
+使用 *painter* 画**场景**的**背景**（在任何图元和前景被画前）。==重写该函数来为该视图定制背景==。
+
+如果你只是想为背景定义颜色、纹理或渐变，可以直接调用`setBackgroundBrush()`，无需重写该函数。
+
+所有绘制都是在**场景坐标系**（scene coordinates）中做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
+
+默认实现是使用**视图**的 backgroundBrush 填充 *rect* 。==如果未设置该画刷（即，使用默认值`Qt::NoBrush`），则调用**场景**的`drawBackground()`==。
+
+##### `virtual void drawForeground(QPainter *painter, const QRectF &rect)`
+
+使用 *painter* 画**场景**的**前景**（在背景和所有图元画完后）。==重写该函数来为该视图定制前景==。
+
+如果你只是想为前景定义颜色、纹理或渐变，可以直接调用`setForegroundBrush()`，无需重写该函数。
+
+所有绘制都是在**场景坐标系**（scene coordinates）中做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
+
+默认实现是使用**视图**的 foregroundBrush 填充 *rect* 。==如果未设置该画刷（即，使用默认值`Qt::NoBrush`），则调用**场景**的`drawForeground()`==。
+

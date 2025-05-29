@@ -27,6 +27,66 @@ https://doc.qt.io/qt-6/qgraphicsscene.html
 | `void`   | `setSceneRect(const QRectF &rect)`                 |
 | `void`   | `setSceneRect(qreal x, qreal y, qreal w, qreal h)` |
 
+### backgroundBrush : QBrush
+
+该属性保存场景的背景画刷。
+
+修改该属性来改变场景背景的颜色、纹理或渐变。默认的背景画刷为`Qt::NoBrush`。背景在所有图元绘制前绘制（即画在所有图元下方）。
+
+案例：
+
+```cpp
+QGraphicsScene scene;
+QGraphicsView view(&scene);
+view.show();
+
+// a blue background
+scene.setBackgroundBrush(Qt::blue);
+
+// a gradient background
+QRadialGradient gradient(0, 0, 10);
+gradient.setSpread(QGradient::RepeatSpread);
+scene.setBackgroundBrush(gradient);
+```
+
+[`QGraphicsScene::render()`](https://doc.qt.io/qt-6/qgraphicsscene.html#render)会调用`drawBackground()`画场景背景。
+
+如果需要对背景绘制进行更精细的控制，可以在`QGraphicsScene`的派生类中重写`drawBackground()`。
+
+| 访问函数     |                                           |
+| -------- | ----------------------------------------- |
+| `QBrush` | `backgroundBrush() const`                 |
+| `void`   | `setBackgroundBrush(const QBrush &brush)` |
+
+### foregroundBrush : QBrush
+
+该属性保存场景的前景画刷。
+
+修改该属性来改变场景前景的颜色、纹理或渐变。默认的前景画刷为`Qt::NoBrush`。前景在所有图元绘制完成后绘制（即画在所有图元上方）。
+
+案例：
+
+```cpp
+QGraphicsScene scene;
+QGraphicsView view(&scene);
+view.show();
+
+// a white semi-transparent foreground
+scene.setForegroundBrush(QColor(255, 255, 255, 127));
+
+// a grid foreground
+scene.setForegroundBrush(QBrush(Qt::lightGray, Qt::CrossPattern));
+```
+
+[`QGraphicsScene::render()`](https://doc.qt.io/qt-6/qgraphicsscene.html#render)会调用`drawForeground()`画场景前景。
+
+如果需要对前景绘制进行更精细的控制，可以在`QGraphicsScene`的派生类中重写`drawForeground()`。
+
+| 访问函数     |                                           |
+| -------- | ----------------------------------------- |
+| `QBrush` | `foregroundBrush() const`                 |
+| `void`   | `setForegroundBrush(const QBrush &brush)` |
+
 # Public Functions
 
 ### 构造和析构
@@ -82,11 +142,17 @@ scene.render(&painter);
 
 ##### `virtual void drawBackground(QPainter *painter, const QRectF &rect)`
 
-使用 *painter* 画场景的**背景**（在任何图元和前景被画前）。==重写该函数来定制场景的背景==。
+使用 *painter* 画场景的**背景**（在任何图元和前景被画前）。==重写该函数来为场景定制背景==。
 
-所有绘制都是在**场景坐标系**（scene coordinates）做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
+所有绘制都是在**场景坐标系**（scene coordinates）中做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
 
 如果你只是想为背景定义颜色、纹理或渐变，可以直接调用`setBackgroundBrush()`，无需重写该函数。
 
 ##### `virtual void drawForeground(QPainter *painter, const QRectF &rect)`
+
+使用 *painter* 画场景的**前景**（在背景和所有图元画完后）。==重写该函数来为场景定制前景==。
+
+所有绘制都是在**场景坐标系**（scene coordinates）中做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
+
+如果你只是想为前景定义颜色、纹理或渐变，可以直接调用`setForegroundBrush()`，无需重写该函数。
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
+                "file": "Qt Widgets/C++ Classes/QStatusBar.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QGraphicsScene"
+              "title": "QStatusBar"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QGraphicsScene.md",
+                "file": "Qt Widgets/C++ Classes/QStatusBar.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QGraphicsScene 的大纲"
+              "title": "QStatusBar 的大纲"
             }
           },
           {
@@ -181,9 +181,18 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "image/Pasted image 20250530171606.png",
     "Qt Widgets/C++ Classes/QMainWindow.md",
+    "Qt Widgets/C++ Classes/QGraphicsView.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt GUI/C++ Classes/QPainterPath.md",
+    "Qt GUI/C++ Classes/QPixmap.md",
+    "Qt GUI/C++ Classes/QSinglePointEvent.md",
+    "Qt GUI/C++ Classes/QWheelEvent.md",
+    "Qt GUI/C++ Classes/QInputEvent.md",
+    "Qt GUI/C++ Classes/QEvent.md",
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt Widgets/C++ Classes/QLayout.md",
     "Qt Widgets/C++ Classes/QStatusBar.md",
     "Qt Widgets/C++ Classes/QFileDialog.md",
@@ -191,7 +200,6 @@
     "Qt Widgets/C++ Classes/QDialog.md",
     "Qt Core/C++ Classes/QSignalBlocker.md",
     "Qt Core/C++ Classes/QSettings.md",
-    "Qt GUI/C++ Classes/QPainterPath.md",
     "image/Pasted image 20250529162438.png",
     "Qt Widgets/C++ Classes/QGraphicsObject.md",
     "Qt Widgets/C++ Classes/QGridLayout.md",
@@ -200,17 +208,9 @@
     "Qt Widgets/C++ Classes/QAbstractSpinBox.md",
     "Qt Widgets/C++ Classes/QBoxLayout.md",
     "Qt Widgets/C++ Classes/QGraphicsItem.md",
-    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
-    "Qt Core/C++ Classes/QObject.md",
-    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
-    "Qt GUI/C++ Classes/QPainter.md",
     "Modules/Qt SVG/C++ Classes",
-    "Modules/Qt SVG.md",
     "Modules/Qt SVG",
-    "Qt Widgets/未命名.md",
     "Modules",
-    "Qt Widgets/C++ Classes/QWidget.md",
-    "Qt Widgets/C++ Classes/QSpinBox.md",
     "image/Pasted image 20250527101443.png",
     "Overviews",
     "Pasted image 20250517155722.png",

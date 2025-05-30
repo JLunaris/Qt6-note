@@ -69,6 +69,21 @@ view.show();
 | `QBrush` | `foregroundBrush() const`                 |
 | `void`   | `setForegroundBrush(const QBrush &brush)` |
 
+### transformationAnchor : ViewportAnchor
+
+在变换期间，视图该如何定位场景。
+
+视图的**变换矩阵改变时**或视图的**坐标系被变换时**，`QGraphicsView`使用该属性来决定在视口中如何定位场景。默认行为——[`AnchorViewCenter`](https://doc.qt.io/qt-6/qgraphicsview.html#ViewportAnchor-enum)确保==**视图中心对应的场景点**在变换期间保持不动==（例如，当旋转时，场景会围绕视图的中心旋转）。
+
+注意，==仅在**场景的一部分可见**时（即出现滚动条时）该属性才生效。否则，如果整个场景都能显示在视图中，`QGraphicsView`会使用视图的对齐属性[`alignment`](https://doc.qt.io/qt-6/qgraphicsview.html#alignment-prop)来定位场景在视图中的位置==。
+
+相关内容：[`QGraphicsView::ViewportAnchor`](https://doc.qt.io/qt-6/qgraphicsview.html#ViewportAnchor-enum)
+
+| 访问函数                            |                                                                 |
+| ------------------------------- | --------------------------------------------------------------- |
+| `QGraphicsView::ViewportAnchor` | `transformationAnchor() const`                                  |
+| `void`                          | `setTransformationAnchor(QGraphicsView::ViewportAnchor anchor)` |
+
 # Public Functions
 
 ### 构造和析构
@@ -98,6 +113,24 @@ view.show();
 ##### `QGraphicsScene *scene() const`
 
 返回当前视图正在查看的场景。如果当前没有查看任何场景，则返回`nullptr`。
+
+### 变换
+
+##### `QTransform transform() const`
+
+返回视图当前的变换矩阵。如果没有设置变换，则返回单位矩阵。
+
+##### `void scale(qreal sx, qreal sy)`
+
+按比例`(sx, sy)`缩放当前视图的变换。
+
+### 映射
+
+##### `QPointF mapToScene(const QPoint &point) const`
+
+将视口坐标 *point* 映射到场景坐标。
+
+注意：映射 ***point* 处像素覆盖的整个矩形**而不是**点本身**会更有用。为此，可以调用`mapToScene(QRect(point, QSize(2, 2)))`。
 
 ### 渲染
 

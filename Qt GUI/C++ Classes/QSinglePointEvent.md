@@ -7,7 +7,7 @@ https://doc.qt.io/qt-6/qsinglepointevent.html
 
 ##### `QPointF position() const`
 
-返回此事件的点（point）在**接收此事件的 widget 或 item** 中的位置。
+返回此事件的点（point）在**接收此事件的控件或图元** 中的位置。
 
 ##### `QPointF globalPosition() const`
 

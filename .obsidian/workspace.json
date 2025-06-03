@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Modules/Qt XML/C++ Classes/QDomDocument.md",
+                "file": "Modules/Qt XML/C++ Classes/QDomNode.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QDomDocument"
+              "title": "QDomNode"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 294.5
   },
   "right": {
     "id": "a5b1d685ad90b651",
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Modules/Qt XML/C++ Classes/QDomDocument.md",
+                "file": "Modules/Qt XML/C++ Classes/QDomNode.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QDomDocument 的大纲"
+              "title": "QDomNode 的大纲"
             }
           },
           {
@@ -181,9 +181,11 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Qt Core/C++ Classes/QFile.md",
+    "Modules/Qt XML/C++ Classes/QDomElement.md",
     "Modules/Qt XML/C++ Classes/QDomDocument.md",
     "Modules/Qt XML/C++ Classes/QDomNode.md",
+    "Modules/Qt XML/C++ Classes/未命名.md",
+    "Qt Core/C++ Classes/QFile.md",
     "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
     "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
     "Modules/Qt XML/C++ Classes",
@@ -207,8 +209,6 @@
     "Qt GUI/C++ Classes/QScreen.md",
     "Qt GUI/C++ Classes/QRegion.md",
     "Qt GUI/C++ Classes/QPointerEvent.md",
-    "Qt GUI/C++ Classes/QPainterPath.md",
-    "Qt GUI/C++ Classes/QPaintDevice.md",
     "image/Pasted image 20250530171606.png",
     "image/Pasted image 20250529162438.png",
     "Modules/Qt SVG/C++ Classes",

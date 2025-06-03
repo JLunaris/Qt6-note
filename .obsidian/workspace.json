@@ -11,10 +11,14 @@
             "id": "ced3edbd53d418d1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Modules/Qt XML/C++ Classes/QDomDocument.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "QDomDocument"
             }
           }
         ]
@@ -138,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Modules/Qt XML/C++ Classes/QDomDocument.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "QDomDocument 的大纲"
             }
           },
           {
@@ -161,7 +166,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 368.5
+    "width": 403.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,6 +182,12 @@
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
     "Qt Core/C++ Classes/QFile.md",
+    "Modules/Qt XML/C++ Classes/QDomDocument.md",
+    "Modules/Qt XML/C++ Classes/QDomNode.md",
+    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
+    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
+    "Modules/Qt XML/C++ Classes",
+    "Modules/Qt XML",
     "Qt Core/C++ Classes/QFileDevice.md",
     "Qt Core/C++ Classes/QIODevice.md",
     "Qt GUI/C++ Classes/QPainter.md",
@@ -189,9 +200,7 @@
     "Qt GUI/C++ Classes/QEvent.md",
     "Qt Widgets/C++ Classes/QGraphicsObject.md",
     "Qt Widgets/C++ Classes/QMainWindow.md",
-    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
     "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
-    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
     "Qt Widgets/C++ Classes/QGridLayout.md",
     "Qt Widgets/C++ Classes/QWidget.md",
     "Qt Widgets/C++ Classes/QStatusBar.md",
@@ -200,8 +209,6 @@
     "Qt GUI/C++ Classes/QPointerEvent.md",
     "Qt GUI/C++ Classes/QPainterPath.md",
     "Qt GUI/C++ Classes/QPaintDevice.md",
-    "Qt Widgets/C++ Classes/QGraphicsItem.md",
-    "Qt Widgets/C++ Classes/QLayout.md",
     "image/Pasted image 20250530171606.png",
     "image/Pasted image 20250529162438.png",
     "Modules/Qt SVG/C++ Classes",
@@ -220,8 +227,6 @@
     "Qt Widgets/Qt Style Sheets",
     "Qt Core/C++ Classes",
     "Qt Core",
-    "image",
-    "Qt GUI/C++ Classes",
-    "Qt Widgets/C++ Classes"
+    "image"
   ]
 }

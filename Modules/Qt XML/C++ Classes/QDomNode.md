@@ -71,11 +71,46 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 13. bool isText() const
 ```
 
-以1为例，其余同理：
+以`[1]`为例，其余同理：
 
 如果结点是一个属性（attribute），返回`true`；否则返回`false`。
 
 但是返回`true`并不意味着该对象是一个`QDomAttribute`，需要调用`toAttribute()`来获取`QDomAttribute`。
+
+### 子结点
+
+##### `QDomNode firstChild() const`
+
+返回结点的 firstChild。如果没有子结点，则返回[空结点](https://doc.qt.io/qt-6/qdomnode.html#isNull)。
+
+修改返回的结点，会同时修改文档树中的对应结点。
+
+##### `QDomNode lastChild() const`
+
+返回结点的 lastChild。如果没有子结点，则返回[空结点](https://doc.qt.io/qt-6/qdomnode.html#isNull)。
+
+修改返回的结点，会同时修改文档树中的对应结点。
+
+##### `QDomNodeList childNodes() const`
+
+Returns a list of all direct child nodes.
+
+==最常用于`QDomElement`对象上调用==。
+
+例如，若 XML 文档如下：
+
+```xml
+<body>
+<h1>Heading</h1>
+<p>Hello <b>you</b></p>
+</body>
+```
+
+则 "body" 元素的子结点列表将包含由`<h1>`标签创建的结点和`<p>`标签创建的结点。
+
+列表中的结点不是拷贝的，因此==修改列表中的结点会同时修改对应的原结点==。
+
+相关内容：[QDomNodeList](https://doc.qt.io/qt-6/qdomnodelist.html)类
 
 ### 其他
 

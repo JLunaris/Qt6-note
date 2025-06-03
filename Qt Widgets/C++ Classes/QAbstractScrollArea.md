@@ -65,3 +65,15 @@ widget->move(topLeft.x() - hvalue, topLeft.y() - vvalue);
 
 如果 *widget* 是`nullptr`，将自动创建一个新的`QWidget`作为视口。
 
+# Reimplemented Protected Functions
+
+##### `virtual void mousePressEvent(QMouseEvent *e) override`
+
+Reimplements：[`QWidget::mousePressEvent(QMouseEvent *event)`](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+
+可在派生类中重写该函数以接收==`viewport()`控件的鼠标按下事件==。事件通过 *e* 传递。
+
+默认实现调用了`QWidget::mousePressEvent()`以处理默认的弹出（popup）。
+
+
+

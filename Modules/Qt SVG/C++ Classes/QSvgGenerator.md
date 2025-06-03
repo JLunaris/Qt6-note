@@ -11,6 +11,22 @@ target_link_libraries(mytarget PRIVATE Qt6::Svg)
 
 注意：该类中的所有函数都是[可重入的](https://doc.qt.io/qt-6/threads-reentrancy.html)。
 
+# Properties
+
+### viewBox : QRectF
+
+该属性保存生成的 SVG 图像的视图框（viewBox）。
+
+默认情况下，该属性被设置为`QRect(0, 0, -1, -1)`，表示生成器不应输出`<svg>`元素的 viewBox 属性。
+
+> 注意：`QPainter`在生成器上激活（active）时，无法更改此属性。
+
+| 访问函数     |                                     |
+| -------- | ----------------------------------- |
+| `QRectF` | `viewBoxF() const`                  |
+| `void`   | `setViewBox(const QRect &viewBox)`  |
+| `void`   | `setViewBox(const QRectF &viewBox)` |
+
 # Detailed Description
 
 该绘制设备表示 **可缩放矢量图形（SVG）** 绘图。类似于`QPrinter`，它被设计为一个生成特定格式输出的**只写设备**。

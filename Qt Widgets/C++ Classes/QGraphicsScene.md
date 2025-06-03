@@ -140,6 +140,7 @@ scene.render(&painter);
 
 # Protected Functions
 
+### 前景和背景绘制
 ##### `virtual void drawBackground(QPainter *painter, const QRectF &rect)`
 
 使用 *painter* 画场景的**背景**（在任何图元和前景被画前）。==重写该函数来为场景定制背景==。
@@ -155,4 +156,23 @@ scene.render(&painter);
 所有绘制都是在**场景坐标系**（scene coordinates）中做的。*rect* 指的是**场景中暴露到视图的矩形区域**，它基于**场景坐标系**。
 
 如果你只是想为前景定义颜色、纹理或渐变，可以直接调用`setForegroundBrush()`，无需重写该函数。
+
+### 事件处理
+
+##### `virtual void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)`
+
+用于处理事件 *mouseEvent*，可在派生类中重写以接收场景中的鼠标按下事件。
+
+默认实现取决于场景的状态：
+
+- 如果当前存在 mouse grabber 图元，则事件会发送给该图元；
+- 否则，它会被转发给在事件的场景位置上的、接受鼠标事件的、最顶层的可见图元，然后该图元会立即成为 mouse grabber 图元。
+
+如果场景中给定位置上没有任何图元，则：
+
+- 选区（selection area）会被重置；
+- 任何焦点图元（focus item）失去其输入焦点；
+- 然后该事件会被忽略。
+
+注意：哪些图元会被该函数视为“可见的”，见[`items()`](https://doc.qt.io/qt-6/qgraphicsscene.html#items)。
 

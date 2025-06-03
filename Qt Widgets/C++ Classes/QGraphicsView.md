@@ -84,6 +84,17 @@ view.show();
 | `QGraphicsView::ViewportAnchor` | `transformationAnchor() const`                                  |
 | `void`                          | `setTransformationAnchor(QGraphicsView::ViewportAnchor anchor)` |
 
+### alignment : Qt::Alignment
+
+该属性保存==当整个场景在视图中可见（即没有滚动条）时==，场景在视图中的对齐方式（即场景在视图中的渲染位置）。默认为居中对齐（[`Qt::AlignCenter`](https://doc.qt.io/qt-6/qt.html#AlignmentFlag-enum)）。
+
+> 整个场景可见：意思是整个`sceneRect()`完全显示在视图中。
+
+| 访问函数            |                                         |
+| --------------- | --------------------------------------- |
+| `Qt::Alignment` | `alignment() const`                     |
+| `void`          | `setAlignment(Qt::Alignment alignment)` |
+
 # Public Functions
 
 ### 构造和析构
@@ -183,6 +194,8 @@ view.render(&painter,
 
 # Protected Functions
 
+### 前景和背景绘制
+
 ##### `virtual void drawBackground(QPainter *painter, const QRectF &rect)`
 
 使用 *painter* 画**场景**的**背景**（在任何图元和前景被画前）。==重写该函数来为该视图定制背景==。
@@ -203,3 +216,8 @@ view.render(&painter,
 
 默认实现是使用**视图**的 foregroundBrush 填充 *rect* 。==如果未设置该画刷（即，使用默认值`Qt::NoBrush`），则调用**场景**的`drawForeground()`==。
 
+### 事件处理
+
+##### `virtual void mousePressEvent(QMouseEvent *event) override`
+
+Reimplements：[[QAbstractScrollArea#`virtual void mousePressEvent(QMouseEvent *e) override`]]

@@ -1,0 +1,27 @@
+https://doc.qt.io/qt-6/qiodevice.html
+
+`QIODevice`类是 Qt 中所有 I/O 设备的基接口类。
+
+- Inherits：[[QObject]] 和 [QIODeviceBase](https://doc.qt.io/qt-6/qiodevicebase.html)
+- Inherited By：[[QFileDevice]]
+
+注意：该类中的所有函数都是[可重入的](https://doc.qt.io/qt-6/threads-reentrancy.html)。
+
+# Public Functions
+
+### 打开和关闭
+
+##### `virtual bool open(QIODeviceBase::OpenMode mode)`
+
+打开设备，并将其 OpenMode 设为 *mode*。成功返回`true`，失败返回`false`。
+
+任何对**该函数**或**其他打开设备的函数**的 reimplements 都应调用该函数。
+
+##### `virtual void close()`
+
+首先发出信号[`aboutToClose()`](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)，然后关闭设备，并将 OpenMode 设为`NotOpen`。错误字符串也会被重置。
+
+##### `QIODeviceBase::OpenMode openMode() const`
+
+返回设备当前的打开模式。
+

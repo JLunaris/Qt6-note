@@ -200,6 +200,53 @@ Returns a list of all direct child nodes.
 
 判断结点是否有属性（attribute）。
 
+### 值
+
+##### `QString nodeValue() const`
+
+返回结点的值。
+
+“值”的含义取决于派生类：
+
+| Name                                                                                 | Meaning                                |
+| ------------------------------------------------------------------------------------ | -------------------------------------- |
+| [`QDomAttr`](https://doc.qt.io/qt-6/qdomattr.html)                                   | The attribute value                    |
+| [`QDomCDATASection`](https://doc.qt.io/qt-6/qdomcdatasection.html)                   | The content of the CDATA section       |
+| [`QDomComment`](https://doc.qt.io/qt-6/qdomcomment.html)                             | The comment                            |
+| [`QDomProcessingInstruction`](https://doc.qt.io/qt-6/qdomprocessinginstruction.html) | The data of the processing instruction |
+| [`QDomText`](https://doc.qt.io/qt-6/qdomtext.html)                                   | The text                               |
+
+其他派生类不具有结点值，将返回空字符串。
+
+##### `void setNodeValue(const QString &value)`
+
+将结点的值设为 *value*。
+
+### 名称
+
+##### `QString nodeName() const`
+
+返回结点的名称。
+
+“名称”的含义取决于派生类：
+
+|Name|Meaning|
+|---|---|
+|[QDomAttr](https://doc.qt.io/qt-6/qdomattr.html)|The name of the attribute|
+|[QDomCDATASection](https://doc.qt.io/qt-6/qdomcdatasection.html)|The string "#cdata-section"|
+|[QDomComment](https://doc.qt.io/qt-6/qdomcomment.html)|The string "#comment"|
+|[QDomDocument](https://doc.qt.io/qt-6/qdomdocument.html)|The string "#document"|
+|[QDomDocumentFragment](https://doc.qt.io/qt-6/qdomdocumentfragment.html)|The string "#document-fragment"|
+|[QDomDocumentType](https://doc.qt.io/qt-6/qdomdocumenttype.html)|The name of the document type|
+|[QDomElement](https://doc.qt.io/qt-6/qdomelement.html)|The tag name|
+|[QDomEntity](https://doc.qt.io/qt-6/qdomentity.html)|The name of the entity|
+|[QDomEntityReference](https://doc.qt.io/qt-6/qdomentityreference.html)|The name of the referenced entity|
+|[QDomNotation](https://doc.qt.io/qt-6/qdomnotation.html)|The name of the notation|
+|[QDomProcessingInstruction](https://doc.qt.io/qt-6/qdomprocessinginstruction.html)|The target of the processing instruction|
+|[QDomText](https://doc.qt.io/qt-6/qdomtext.html)|The string "#text"|
+
+注意：在处理**元素**和**属性**结点的名称时，该函数不考虑名称空间。因此，返回的名称会包含名称空间前缀（if any）。要获取**元素**或**属性**结点的名称，请使用[`localName()`](https://doc.qt.io/qt-6/qdomnode.html#localName)；要获取名称空间前缀，请使用[`namespaceURI()`](https://doc.qt.io/qt-6/qdomnode.html#namespaceURI)。
+
 ### 其他
 
 ##### `bool isNull() const`

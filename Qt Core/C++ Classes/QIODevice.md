@@ -25,3 +25,16 @@ https://doc.qt.io/qt-6/qiodevice.html
 
 返回设备当前的打开模式。
 
+### 当前位置
+
+##### `virtual bool seek(qint64 pos)`
+
+对于**随机访问（random-access）设备**，该函数==将当前位置设为 *pos*==，成功返回`true`，发生错误时返回`false`。对于**顺序（sequential）设备**，默认行为是产生警告并返回`false`。
+
+在继承`QIODevice`类时，必须在函数起始处调用`QIODevice::seek()`，以便更新`QIODevice`内部的缓冲区状态，确保一致性。
+
+##### `virtual qint64 pos() const`
+
+对于**随机访问设备**，该函数返回当前读/写数据时的位置。对于**顺序设备**或**已关闭的设备**，由于不存在“当前位置”的概念，返回值为`0`。
+
+设备的当前读/写位置由`QIODevice`在内部维护，因此没必要重写此函数。在继承`QIODevice`类时，必须在函数起始处调用`QIODevice::seek()`，以便更新`QIODevice`内部的缓冲区状态，确保一致性。

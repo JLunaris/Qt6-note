@@ -56,3 +56,7 @@ target_link_libraries(mytarget PRIVATE Qt6::Svg)
 ##### `bool load(const QString &filename)`
 
 加载由 *filename* 指定的 SVG 文件，如果成功解析内容则返回`true`，否则返回`false`。
+
+##### `void render(QPainter *painter)`
+
+使用给定的 *painter* 渲染当前文档，或动画文档的当前帧。

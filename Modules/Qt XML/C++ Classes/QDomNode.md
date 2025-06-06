@@ -13,6 +13,24 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 # Public Functions
 
+### 构造和析构
+
+##### `QDomNode()`
+
+构造一个[空结点](https://doc.qt.io/qt-6/qdomnode.html#isNull)。
+
+##### `QDomNode(const QDomNode &node)`
+
+拷贝构造函数。
+
+==拷贝的数据是共享的（**浅拷贝**）==：修改一个结点会同时更改另一个文档中的对应结点。
+
+如果想要深拷贝，请使用`cloneNode()`。
+
+##### `~QDomNode() noexcept`
+
+销毁对象并释放其资源。
+
 ### 结点类型
 
 ##### `QDomNode::NodeType nodeType() const`
@@ -112,6 +130,76 @@ Returns a list of all direct child nodes.
 
 相关内容：[QDomNodeList](https://doc.qt.io/qt-6/qdomnodelist.html)类
 
+##### `bool hasChildNodes() const`
+
+判断结点是否有子结点。
+
+### 兄弟结点
+
+##### `QDomNode nextSibling() const`
+
+返回文档树中的下一个兄弟结点。修改返回的结点，会同时修改文档树中的对应结点。
+
+若 XML 文档如下：
+
+```xml
+<h1>Heading</h1>
+<p>The text...</p>
+<h2>Next heading</h2>
+```
+
+且该`QDomNode`代表`<p>`标签，则`nextSibling()`将返回代表`<h2>`标签的结点。
+
+##### `QDomNode previousSibling() const`
+
+返回文档树中的前一个兄弟结点。修改返回的结点，会同时修改文档树中的对应结点。
+
+若 XML 文档如下：
+
+```xml
+<h1>Heading</h1>
+<p>The text...</p>
+<h2>Next heading</h2>
+```
+
+且该`QDomNode`代表`<p>`标签，则`previousSibling()`将返回代表`<h1>`标签的结点。
+
+### 筛选子结点
+
+##### `QDomElement firstChildElement(const QString &tagName = QString(), const QString &namespaceURI = QString()) const`
+
+返回首个标签名为 *tagName* 、名称空间 URI 为 *namespaceURI* 的**元素类型子结点**。
+
+> 注意：只遍历**直接**子结点。
+
+如果 *tagName* 为空，返回首个名称空间URI为 *namespaceURI* 的子结点；如果 *namespaceURI* 为空，返回首个标签名为 *tagName* 的子结点。==如果两参数都为空，返回首个元素类型子结点==。
+
+如果不存在这样的子结点，返回[空元素](https://doc.qt.io/qt-6/qdomnode.html#isNull)。
+
+##### `QDomElement lastChildElement(const QString &tagName = QString(), const QString &namespaceURI = QString()) const`
+
+类比`firstChildElement()`。
+
+##### `QDomElement previousSiblingElement(const QString &tagName = QString(), const QString &namespaceURI = QString()) const`
+
+类比`firstChildElement()`。
+
+##### `QDomElement nextSiblingElement(const QString &tagName = QString(), const QString &namespaceURI = QString()) const`
+
+类比`firstChildElement()`。
+
+### 属性
+
+##### `QDomNamedNodeMap attributes() const`
+
+返回一个包含所有属性的**具名结点映射**（named node map）。==只有`QDomElement`才有属性==。
+
+修改 map 中的属性会同步反映到该`QDomNode`的属性上。
+
+##### `bool hasAttributes() const`
+
+判断结点是否有属性（attribute）。
+
 ### 其他
 
 ##### `bool isNull() const`
@@ -121,3 +209,8 @@ Returns a list of all direct child nodes.
 ##### `bool isSupported(const QString &feature, const QString &version) const`
 
 如果 **DOM 实现** 实现了特性 *feature*，且该版本 *version* 中的结点支持此特性，返回`true`；否则返回`false`。
+
+##### `void clear()`
+
+将结点转为空结点；如果它之前不是空结点，其类型和内容会被删除。
+

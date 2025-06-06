@@ -13,9 +13,29 @@ target_link_libraries(mytarget PRIVATE Qt6::Svg)
 
 # Properties
 
+### outputDevice : QIODevice *
+
+该属性保存**输出设备**（即生成的 SVG 应输出到哪个设备）。
+
+如果同时指定了输出设备和文件名，则输出设备具有优先权。
+
+| 访问函数          |                                            |
+| ------------- | ------------------------------------------ |
+| `QIODevice *` | `outputDevice() const`                     |
+| `void`        | `setOutputDevice(QIODevice *outputDevice)` |
+
+### fileName : QString
+
+该属性保存**目标文件名**（即生成的 SVG 应输出到哪个文件）。
+
+| 访问函数      |                                        |
+| --------- | -------------------------------------- |
+| `QString` | `fileName() const`                     |
+| `void`    | `setFileName(const QString &fileName)` |
+
 ### viewBox : QRectF
 
-该属性保存生成的 SVG 图像的视图框（viewBox）。
+该属性保存生成的 SVG 图像的**视图框**（viewBox）。
 
 默认情况下，该属性被设置为`QRect(0, 0, -1, -1)`，表示生成器不应输出`<svg>`元素的 viewBox 属性。
 

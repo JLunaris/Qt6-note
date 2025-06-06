@@ -56,7 +56,21 @@ red->setElementId(QLatin1String("red_joker"));
 
 构造一个 SVG 图元，父图元为 *parent*，并加载 *filename* 指代的 SVG 文件的内容。
 
-### 其他
+### 渲染器
+
+##### `QSvgRenderer *renderer() const`
+
+返回图元当前使用的`QSvgRenderer`。
+
+### 设置共享渲染器
+
+##### `void setSharedRenderer(QSvgRenderer *renderer)`
+
+将 *renderer* 设为该图元的共享渲染器。
+
+通过使用此方法，可在多个图元上共享同一个`QSvgRenderer`。这意味着 **SVG 文件只会被解析一次**。传递给此方法的`QSvgRenderer`必须在图元使用它的期间一直存在。
+
+### XML元素的ID
 
 ##### `void setElementId(const QString &id)`
 

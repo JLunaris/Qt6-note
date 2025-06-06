@@ -33,7 +33,7 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 拷贝构造函数。
 
-拷贝的数据是共享的（**浅拷贝**）：修改一个结点会同时更改另一个文档中的对应结点。
+==拷贝的数据是共享的（**浅拷贝**）==：修改一个结点会同时更改另一个文档中的对应结点。
 
 如果想要深拷贝，请使用`cloneNode()`。
 
@@ -72,13 +72,17 @@ QDomDocument::ParseOptions options = ParseOption::Default)
 
 > 注意：对于`[重载2]`（首参数为`QIODevice *`），`setContent()`不会自动打开设备。因此，应用程序应在调用`setContent()`前手动打开设备。
 
+相关内容：[QDomDocument::ParseResult](https://doc.qt.io/qt-6/qdomdocument-parseresult.html)类
+
 ### 元素
 
 ##### `QDomElement documentElement() const`
 
-返回文档的**根结点**元素。
+返回文档的**根元素**。
 
-### 其他
+> XML 文档**有且仅有一个**根元素。
+
+### 文本表示
 
 ##### `QString toString(int indent = 1) const`
 

@@ -138,3 +138,23 @@ QRectF CircleItem::boundingRect() const
 }
 ```
 
+# Protected Functions
+
+##### `void prepareGeometryChange()`
+
+为图元的几何信息变化做准备。在修改图元的边界矩形前，调用该函数以确保`QGraphicsScene`的索引保持最新。
+
+如有必要，`prepareGeometryChange()`会自动调用[`update()`](https://doc.qt.io/qt-6/qgraphicsitem.html#update)。
+
+案例：
+
+```cpp
+void CircleItem::setRadius(qreal newRadius)
+{
+    if (radius != newRadius) {
+        prepareGeometryChange();
+        radius = newRadius;
+    }
+}
+```
+

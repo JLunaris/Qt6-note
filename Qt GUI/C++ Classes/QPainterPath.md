@@ -22,6 +22,26 @@ https://doc.qt.io/qt-6/qpainterpath.html
 
 析构函数。
 
+### 边界矩形 & 控制点矩形
+
+##### `QRectF boundingRect() const`
+
+返回该 painter path 的边界矩形，浮点数精度。
+
+##### `QRectF controlPointRect() const`
+
+返回包含此路径中所有**点**和**控制点**的矩形。
+
+该函数的计算速度**明显快于**精确的`boundingRect()`，并且返回的矩形==始终是`boundingRect()`返回矩形的超集==。
+
+> 【个人笔记】
+> 
+> `boundingRect()`精确包围路径所有可见内容，但速度慢；
+> ![[Pasted image 20250620164914.png]]
+> 
+>`controlPointRect()`仅根据点和控制点来确定矩形，速度快，但不够精确（但它一定是`boundingRect()`返回矩形的超集）。
+>![[Pasted image 20250620164947.png]]
+
 ### 添加形状到路径
 
 ##### `void addRect(const QRectF &rectangle)`

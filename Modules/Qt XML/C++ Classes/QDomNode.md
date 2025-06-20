@@ -164,7 +164,7 @@ Returns a list of all direct child nodes.
 
 且该`QDomNode`代表`<p>`标签，则`previousSibling()`将返回代表`<h1>`标签的结点。
 
-### 筛选子结点
+### 筛选结点
 
 ##### `QDomElement firstChildElement(const QString &tagName = QString(), const QString &namespaceURI = QString()) const`
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsItem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QSvgGenerator"
+              "title": "QGraphicsItem"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
+                "file": "Qt Widgets/C++ Classes/QGraphicsItem.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QSvgGenerator 的大纲"
+              "title": "QGraphicsItem 的大纲"
             }
           },
           {
@@ -181,34 +181,34 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
-    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
-    "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
-    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
-    "Qt GUI/C++ Classes/QColor.md",
-    "Modules/Qt XML/C++ Classes/QDomNode.md",
-    "Modules/Qt XML/C++ Classes/QDomElement.md",
-    "Qt Core/C++ Classes/QIODevice.md",
-    "Modules/Qt XML/C++ Classes/QDomDocument.md",
-    "Qt Widgets/C++ Classes/QGraphicsItem.md",
-    "Qt Widgets/C++ Classes/QGraphicsObject.md",
     "Qt Widgets/C++ Classes/QGraphicsScene.md",
-    "Qt Widgets/C++ Classes/QGridLayout.md",
-    "Qt GUI/C++ Classes/QPixmap.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
+    "Overviews/Using the Meta-Object Compiler (moc).md",
     "Qt Core/The Meta-Object System.md",
     "Qt Core/Signals & Slots.md",
+    "Qt Widgets/Graphics View Framework.md",
+    "Qt Widgets/Window and Dialog Widgets.md",
+    "Qt Widgets/C++ Classes/QGraphicsItem.md",
+    "Modules/Qt XML/C++ Classes/QDomElement.md",
+    "Modules/Qt XML/C++ Classes/QDomNode.md",
+    "Modules/Qt XML/C++ Classes/QDomDocument.md",
+    "Qt GUI/C++ Classes/QRadialGradient.md",
+    "Qt GUI/C++ Classes/QGradient.md",
+    "Qt GUI/C++ Classes/QLinearGradient.md",
+    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
+    "Modules/Qt SVG/C++ Classes/QGraphicsSvgItem.md",
+    "Qt Widgets/C++ Classes/QWidget.md",
+    "Qt Widgets/C++ Classes/QLayout.md",
+    "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
+    "Qt GUI/C++ Classes/QColor.md",
+    "Qt Core/C++ Classes/QIODevice.md",
+    "Qt Widgets/C++ Classes/QGraphicsObject.md",
+    "Qt Widgets/C++ Classes/QGridLayout.md",
+    "Qt GUI/C++ Classes/QPixmap.md",
     "Qt Core/C++ Classes/QFile.md",
     "Modules/Qt XML/C++ Classes/未命名.md",
     "Modules/Qt XML/C++ Classes",
     "Modules/Qt XML",
-    "Qt Core/C++ Classes/QFileDevice.md",
-    "Qt GUI/C++ Classes/QPainter.md",
-    "Qt Widgets/C++ Classes/QAbstractScrollArea.md",
-    "Qt GUI/C++ Classes/QLinearGradient.md",
-    "Qt GUI/C++ Classes/QRadialGradient.md",
-    "Qt GUI/C++ Classes/QSinglePointEvent.md",
-    "Qt GUI/C++ Classes/QEvent.md",
-    "Qt Widgets/C++ Classes/QMainWindow.md",
     "image/Pasted image 20250530171606.png",
     "image/Pasted image 20250529162438.png",
     "Modules/Qt SVG/C++ Classes",

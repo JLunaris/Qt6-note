@@ -27,10 +27,6 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 ### 属性
 
-##### `QDomNamedNodeMap attributes() const`
-
-返回[`QDomNamedNodeMap`](https://doc.qt.io/qt-6/qdomnamednodemap.html)，包含该元素的全部属性。
-
 ##### `QString attribute(const QString &name, const QString &defValue = QString()) const`
 
 返回名为 *name* 的属性的属性值。如果属性不存在，返回 *defValue*。
@@ -46,3 +42,7 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 ##### `QDomAttr attributeNode(const QString &name)`
 
 返回名为 *name* 的属性（[`QDomAttr`](https://doc.qt.io/qt-6/qdomattr.html)型）。如果属性不存在，返回[空属性](https://doc.qt.io/qt-6/qdomnode.html#isNull)。
+
+##### `QDomNamedNodeMap attributes() const`
+
+返回[`QDomNamedNodeMap`](https://doc.qt.io/qt-6/qdomnamednodemap.html)，包含该元素的全部属性。

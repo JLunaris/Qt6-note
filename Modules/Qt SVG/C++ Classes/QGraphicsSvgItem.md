@@ -31,7 +31,7 @@ red->setElementId(QLatin1String("red_joker"));
 
 可通过直接操纵图元的变换矩阵来设置图元的尺寸。
 
-默认情况下，SVG 渲染会被缓存（使用[`QGraphicsItem::DeviceCoordinateCache`](https://doc.qt.io/qt-6/qgraphicsitem.html#CacheMode-enum)模式）以加速图元显示。将[`QGraphicsItem::NoCache`](https://doc.qt.io/qt-6/qgraphicsitem.html#CacheMode-enum)传递给[`QGraphicsItem::setCacheMode()`](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)可以禁用缓存。
+==默认情况下，SVG 渲染会被缓存==（使用[`QGraphicsItem::DeviceCoordinateCache`](https://doc.qt.io/qt-6/qgraphicsitem.html#CacheMode-enum)模式）以加速图元显示。将[`QGraphicsItem::NoCache`](https://doc.qt.io/qt-6/qgraphicsitem.html#CacheMode-enum)传递给[`QGraphicsItem::setCacheMode()`](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)可以禁用缓存。
 
 # Properties
 

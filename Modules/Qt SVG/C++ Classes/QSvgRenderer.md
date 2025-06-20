@@ -23,6 +23,17 @@ target_link_libraries(mytarget PRIVATE Qt6::Svg)
 | `void`   | `setViewBox(const QRect &viewbox)`  |
 | `void`   | `setViewBox(const QRectF &viewbox)` |
 
+### options : QtSvg::Options
+
+该属性保存了一组[`QtSvg::Option`](https://doc.qt.io/qt-6/qtsvg.html#Option-enum)标志，用于启用或禁用 ==SVG 文件解析和渲染==时的各种特性。
+
+该属性==必须在`load()`执行前设置==才能生效。注意，如果是在构造函数中传入 SVG 源参数，则在构造期间就执行加载操作，此时该属性无法生效。
+
+| 访问函数             |                                    |
+| ---------------- | ---------------------------------- |
+| `QtSvg::Options` | `options() const`                  |
+| `void`           | `setOptions(QtSvg::Options flags)` |
+
 # Public Functions
 
 ### 构造和析构

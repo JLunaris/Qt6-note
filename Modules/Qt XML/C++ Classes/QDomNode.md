@@ -194,7 +194,7 @@ Returns a list of all direct child nodes.
 
 返回一个包含所有属性的**具名结点映射**（named node map）。==只有`QDomElement`才有属性==。
 
-修改 map 中的属性会同步反映到该`QDomNode`的属性上。
+==修改 map 中的属性会同步反映到该`QDomNode`的属性上==。
 
 ##### `bool hasAttributes() const`
 

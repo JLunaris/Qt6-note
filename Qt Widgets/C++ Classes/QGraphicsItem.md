@@ -138,6 +138,12 @@ QRectF CircleItem::boundingRect() const
 }
 ```
 
+### 形状
+
+##### `virtual QPainterPath shape() const`
+
+
+
 # Protected Functions
 
 ##### `void prepareGeometryChange()`

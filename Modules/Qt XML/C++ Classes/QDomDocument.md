@@ -11,6 +11,78 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 注意：该类中的所有函数都是[可重入的](https://doc.qt.io/qt-6/threads-reentrancy.html)。
 
+# Detailed Description
+
+`QDomDocument`类代表==整个 XML 文档==。从概念上讲，它是文档树的**根结点**，并提供对文档数据的主要访问。
+
+由于元素、文本结点、注释、处理指令等都不能脱离文档上下文而独立存在，因此该类还还提供了创建这些对象所需的工厂函数。创建的结点对象都具有[`ownerDocument()`](https://doc.qt.io/qt-6/qdomnode.html#ownerDocument)函数，用于返回结点所属的文档。最常使用的 DOM 类包括：`QDomNode`、`QDomDocument`、`QDomElement`和`QDomText`。
+
+解析后的 XML 会在内部表示为一个对象树，可通过各种`QDom`类进行访问。==所有`QDom`类仅仅**引用**内部树中的对象==。==一旦最后一个引用它们的`QDom`对象被删除，或是`QDomDocument`本身被删除，内部 DOM 树将被销毁==。
+
+==元素、文本结点等的创建是通过该类提供的各种工厂函数来完成的。使用`QDom`类的默认构造函数只会得到一个空对象，既不能操作，也不能插入到文档中。==
+
+`QDomDocument`类提供了多个用于创建文档数据的函数，如：`createElement()`、`createTextNode()`、`createComment()`、`createCDATASection()`、`createProcessingInstruction()`、`createAttribute()`和`createEntityReference()`。其中一些函数还提供了支持名称空间的版本，如`createElementNS()`和`createAttributeNS()`。函数`createDocumentFragment()`用于创建文档片段，在处理复杂文档时非常有用。
+
+整个文档的内容可以通过`setContent()`设置。该函数会将传入的字符串作为 XML 文档进行解析，并构建代表该文档的 DOM 树。根元素可通过`documentElement()`获取；文档的文本形式可通过`toString()`获得。
+
+> 注意：如果 XML 文档较大，DOM 树可能会占用大量内存。对于这类文档，使用 [`QXmlStreamReader`](https://doc.qt.io/qt-6/qxmlstreamreader.html)类可能是更好的选择。
+
+[`importNode()`](https://doc.qt.io/qt-6/qdomdocument.html#importNode)用于==将另一个文档中的结点插入到当前文档==。
+
+要获得 DOM 树中具有特定标签的所有元素，使用[`elementsByTagName()`](https://doc.qt.io/qt-6/qdomdocument.html#elementsByTagName)或[`elementsByTagNameNS()`](https://doc.qt.io/qt-6/qdomdocument.html#elementsByTagNameNS)。
+
+`QDom`类的典型用法如下：
+
+```cpp
+QDomDocument doc("mydocument");
+QFile file("mydocument.xml");
+if (!file.open(QIODevice::ReadOnly))
+	return;
+if (!doc.setContent(&file)) {
+	file.close();
+	return;
+}
+file.close();
+
+// print out the element names of all elements that are direct children
+// of the outermost element.
+QDomElement docElem = doc.documentElement();
+
+QDomNode n = docElem.firstChild();
+while(!n.isNull()) {
+	QDomElement e = n.toElement(); // try to convert the node to an element.
+	if(!e.isNull()) {
+		cout << qPrintable(e.tagName()) << '\n'; // the node really is an element.
+	}
+	n = n.nextSibling();
+}
+
+// Here we append a new element to the end of the document
+QDomElement elem = doc.createElement("img");
+elem.setAttribute("src", "myimage.png");
+docElem.appendChild(elem);
+```
+
+一旦`doc`和`elem`离开作用域，代表 XML 文档的整个内部树将会销毁。
+
+要使用 DOM 创建一个文档，可以参考如下代码：
+
+```cpp
+QDomDocument doc;
+QDomElement root = doc.createElement("MyML");
+doc.appendChild(root);
+
+QDomElement tag = doc.createElement("Greeting");
+root.appendChild(tag);
+
+QDomText t = doc.createTextNode("Hello World");
+tag.appendChild(t);
+
+QString xml = doc.toString();
+```
+
+关于**文档对象模型**（DOM）的更多信息，请参考 [Level 1](http://www.w3.org/TR/REC-DOM-Level-1/) 和 [Level 2 Core](http://www.w3.org/TR/DOM-Level-2-Core/) 规范。
+
 # Public Functions
 
 ### 构造和析构
@@ -35,7 +107,7 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 ==拷贝的数据是共享的（**浅拷贝**）==：修改一个结点会同时更改另一个文档中的对应结点。
 
-如果想要深拷贝，请使用`cloneNode()`。
+如果想要深拷贝，请使用[`cloneNode()`](https://doc.qt.io/qt-6/qdomnode.html#cloneNode)。
 
 ##### `~QDomDocument() noexcept`
 

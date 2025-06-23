@@ -142,7 +142,22 @@ QRectF CircleItem::boundingRect() const
 
 ##### `virtual QPainterPath shape() const`
 
+返回图元的形状，是**局部坐标系**中的`QPainterPath`。形状用于许多事情，包括**碰撞检测**（collision detection）、**命中测试**（hit test），以及用于[`QGraphicsScene::items()`](https://doc.qt.io/qt-6/qgraphicsscene.html#items)函数。
 
+==默认实现会调用`boundingRect()`返回一个简单的矩形==，但派生类可以重写该函数，从而为非矩形图元返回一个更精确的形状。例如，圆形图元可以返回一个椭圆形状，以提高碰撞检测的准确性：
+
+```cpp
+QPainterPath RoundItem::shape() const
+{
+    QPainterPath path;
+    path.addEllipse(boundingRect());
+    return path;
+}
+```
+
+形状的轮廓可能会因绘制时使用的画笔的宽度和样式而有所不同。如果你希望将该轮廓也包含在图元的形状中，可使用[`QPainterPathStroker`](https://doc.qt.io/qt-6/qpainterpathstroker.html)根据描边创建一个形状。
+
+==该函数会被[`contains()`](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)和[`collidesWithPath()`](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)的默认实现所调用==。
 
 # Protected Functions
 

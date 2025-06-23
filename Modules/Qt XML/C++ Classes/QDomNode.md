@@ -31,6 +31,16 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 销毁对象并释放其资源。
 
+### 拷贝结点
+
+##### `QDomNode cloneNode(bool deep = true) const`
+
+创建`QDomNode`的**深拷贝**（不是浅拷贝）。
+
+如果 *deep* 为`true`，则**递归地执行复制**，即该结点的所有子结点也会被深拷贝；如果 *deep* 为`false`，则只有结点本身被复制，副本不包含任何子结点。
+
+> 个人笔记：不论 *deep* 为`true`还是`false`，该函数都会深拷贝结点（即修改拷贝后的结点**不会**同时修改之前的结点），*deep* 表示子结点是否也一起深拷贝。
+
 ### 结点类型
 
 ##### `QDomNode::NodeType nodeType() const`

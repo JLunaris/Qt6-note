@@ -19,6 +19,26 @@ target_link_libraries(mytarget PRIVATE Qt6::Xml)
 
 解析后的 XML 会在内部表示为一个对象树，可通过各种`QDom`类进行访问。==所有`QDom`类仅仅**引用**内部树中的对象==。==一旦最后一个引用它们的`QDom`对象被删除，或是`QDomDocument`本身被删除，内部 DOM 树将被销毁==。
 
+> 个人笔记：测试代码如下，离开`f()`作用域后，局部变量`doc`被销毁，内部 DOM 树也被销毁，再通过`element.ownerDocument()`访问 DOM 树属于未定义行为。
+
+```cpp
+auto f()
+{  
+    QDomDocument doc;
+    QDomElement element {doc.createElement("g")};
+    element.setAttribute("age", "13");
+    doc.appendChild(element);
+    qDebug() << element.ownerDocument().toString();  // 输出"<g age="13"/>"
+    return element;
+}
+
+int main()
+{
+    QDomElement element {f()};
+    qDebug() << element.ownerDocument().toString();  // 输出空字符串(未定义行为)
+}
+```
+
 ==元素、文本结点等的创建是通过该类提供的各种工厂函数来完成的。使用`QDom`类的默认构造函数只会得到一个空对象，既不能操作，也不能插入到文档中。==
 
 `QDomDocument`类提供了多个用于创建文档数据的函数，如：`createElement()`、`createTextNode()`、`createComment()`、`createCDATASection()`、`createProcessingInstruction()`、`createAttribute()`和`createEntityReference()`。其中一些函数还提供了支持名称空间的版本，如`createElementNS()`和`createAttributeNS()`。函数`createDocumentFragment()`用于创建文档片段，在处理复杂文档时非常有用。
@@ -145,6 +165,23 @@ QDomDocument::ParseOptions options = ParseOption::Default)
 > 注意：对于`[重载2]`（首参数为`QIODevice *`），`setContent()`不会自动打开设备。因此，应用程序应在调用`setContent()`前手动打开设备。
 
 相关内容：[QDomDocument::ParseResult](https://doc.qt.io/qt-6/qdomdocument-parseresult.html)类
+
+### 创建结点
+
+```cpp
+1. QDomAttr createAttribute(const QString &name)
+2. QDomAttr createAttributeNS(const QString &nsURI, const QString &qName)
+3. QDomCDATASection createCDATASection(const QString &value)
+4. QDomComment createComment(const QString &value)
+5. QDomDocumentFragment createDocumentFragment()
+6. QDomElement createElement(const QString &tagName)
+7. QDomElement createElementNS(const QString &nsURI, const QString &qName)
+8. QDomEntityReference createEntityReference(const QString &name)
+9. QDomProcessingInstruction createProcessingInstruction(const QString &target, const QString &data)
+10. QDomText createTextNode(const QString &value)
+```
+
+详见 [QDomDocument](https://doc.qt.io/qt-6/qdomdocument.html#public-functions)。要创建新结点，**必须且只能通过上述方法**，不能使用结点类型的默认构造函数创建新结点。
 
 ### 元素
 

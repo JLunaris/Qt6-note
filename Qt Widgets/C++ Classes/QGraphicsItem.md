@@ -159,6 +159,42 @@ QPainterPath RoundItem::shape() const
 
 ==该函数会被[`contains()`](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)和[`collidesWithPath()`](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)的默认实现所调用==。
 
+### 位置
+
+##### `QPointF pos() const`
+
+返回图元在**父坐标系**中的位置。如何图元没有父图元，则返回它在**场景坐标系**中的位置。
+
+图元的位置描述了其==原点（局部坐标`(0, 0)`）在父坐标系中的位置==；该函数返回的值和`mapToParent(0, 0)`相等。
+
+为了方便，你可以调用[`scenePos()`](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)来获取图元在**场景坐标系**中的位置，而不考虑其父图元。
+
+##### `qreal x() const`
+
+等价于`pos().x()`。
+
+##### `qreal y() const`
+
+等价于`pos().y()`。
+
+##### `void setPos(const QPointF &pos)`
+
+将图元的位置设为 *pos*，相对于**父坐标系**。如果没有父图元，则 *pos* 是在**场景坐标系**中的。
+
+图元的位置描述了其原点（局部坐标`(0, 0)`）在父坐标系中的位置。
+
+##### `void setX(qreal x)`
+
+等价于`setPos(x, y())`。
+
+##### `void setY(qreal y)`
+
+等价于`setPos(x(), y)`。
+
+##### `QPointF scenePos() const`
+
+返回图元在**场景坐标系**中的位置。等价于调用`mapToScene(0, 0)`。
+
 # Protected Functions
 
 ##### `void prepareGeometryChange()`
@@ -179,3 +215,32 @@ void CircleItem::setRadius(qreal newRadius)
 }
 ```
 
+##### `virtual QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant &value)`
+
+这个虚函数被 [[QGraphicsItem]] 调用，用于通知自定义图元其某些状态的变化。通过重写该函数，你可以==对变化做出响应==，在某些情况下（取决于 *change*）可以做调整。
+
+*change* 表示**正在发生变化的图元属性**，*value* 是**该属性的新值**，其类型取决于具体的 *change* 。
+
+案例：
+
+```cpp
+QVariant Component::itemChange(GraphicsItemChange change, const QVariant &value)
+{
+    if (change == ItemPositionChange && scene()) {
+        // value is the new position.
+        QPointF newPos = value.toPointF();
+        QRectF rect = scene()->sceneRect();
+        if (!rect.contains(newPos)) {
+            // Keep the item inside the scene rect.
+            newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
+            newPos.setY(qMin(rect.bottom(), qMax(newPos.y(), rect.top())));
+            return newPos;
+        }
+    }
+    return QGraphicsItem::itemChange(change, value);
+}
+```
+
+默认实现不做任何事，并返回 *value*。
+
+注意：某些 [[QGraphicsItem]] 函数不能在此函数的重写中调用；详见[`GraphicsItemChange`](https://doc.qt.io/qt-6/qgraphicsitem.html#GraphicsItemChange-enum)。

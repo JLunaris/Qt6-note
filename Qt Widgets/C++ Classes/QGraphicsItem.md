@@ -197,6 +197,8 @@ QPainterPath RoundItem::shape() const
 
 # Protected Functions
 
+### 为几何信息变化做准备
+
 ##### `void prepareGeometryChange()`
 
 为图元的几何信息变化做准备。在修改图元的边界矩形前，调用该函数以确保`QGraphicsScene`的索引保持最新。
@@ -214,6 +216,8 @@ void CircleItem::setRadius(qreal newRadius)
     }
 }
 ```
+
+### 处理图元状态的变化
 
 ##### `virtual QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant &value)`
 
@@ -244,3 +248,28 @@ QVariant Component::itemChange(GraphicsItemChange change, const QVariant &value)
 默认实现不做任何事，并返回 *value*。
 
 注意：某些 [[QGraphicsItem]] 函数不能在此函数的重写中调用；详见[`GraphicsItemChange`](https://doc.qt.io/qt-6/qgraphicsitem.html#GraphicsItemChange-enum)。
+
+### 事件处理
+
+##### `virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event)`
+
+该事件处理函数可被重写，用于接收该图元的鼠标移动事件。如果你收到了此事件，说明==该图元**已经接收过鼠标按下事件**了，并且当前该图元**抓住**了鼠标==。
+
+对 *event* 调用[`QEvent::ignore()`](https://doc.qt.io/qt-6/qevent.html#ignore)或[`QEvent::accept()`](https://doc.qt.io/qt-6/qevent.html#accept)不会产生任何效果。
+
+默认实现提供了基本的图元交互处理，例如选中和移动图元。如果你在重写此函数时仍希望保留基类的默认行为，可以在你的实现中调用`QGraphicsItem::mouseMoveEvent()`。
+
+请注意，[`mousePressEvent()`](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)决定哪个图元要接收鼠标事件。
+
+##### `virtual void mousePressEvent(QGraphicsSceneMouseEvent *event)`
+
+该事件处理函数可被重写，用于接收该图元的鼠标按下事件。==只有当图元接受被按下的鼠标键时，鼠标按下事件才会传递给它==。默认情况下，图元接受所有的鼠标键，但你可通过调用[`setAcceptedMouseButtons()`](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)来修改这一行为。
+
+鼠标按下事件决定哪个图元将成为 mouse grabber（见[`QGraphicsScene::mouseGrabberItem()`](https://doc.qt.io/qt-6/qgraphicsscene.html#mouseGrabberItem)）。==如果你不重写该函数，则该图元不会接受鼠标事件，鼠标按下事件会传递给**该图元下方的最顶层图元**==（当然下方最顶层图元也不一定接受鼠标事件，那就继续向下传播）。
+
+如果你重写了该函数，*event* 默认会被接受（见[`QEvent::accept()`](https://doc.qt.io/qt-6/qevent.html#accept)），且该图元将成为 mouse grabber。这使得图元可以接收将来的**移动**、**释放**和**双击**事件。如果你对 *event* 调用了[`QEvent::ignore()`](https://doc.qt.io/qt-6/qevent.html#ignore)，该图元将失去 mouse grab，*event* 会继续传递给**下方的最顶层图元**。此后不会再有其他鼠标事件传给该图元，除非收到新的鼠标按下事件。
+
+默认实现提供了基本的图元交互处理，例如选中和移动图元。如果你在重写此函数时仍希望保留基类的默认行为，可以在你的实现中调用`QGraphicsItem::mousePressEvent()`。
+
+对于**不可移动**且**不可选中**的图元，事件默认会被忽略（`QEvent::ignore()`）。
+

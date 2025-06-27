@@ -74,3 +74,11 @@ if (!isAffine()) {
 
 `QTransform`提供了[`translate()`](https://doc.qt.io/qt-6/qtransform.html#translate)、[`rotate()`](https://doc.qt.io/qt-6/qtransform.html#rotate)、[`scale()`](https://doc.qt.io/qt-6/qtransform.html#scale)、[`shear()`](https://doc.qt.io/qt-6/qtransform.html#shear)等便捷函数，可基于当前定义的坐标系来操作矩阵的各种元素。
 
+### 平移
+
+##### `QTransform &translate(qreal dx, qreal dy)`
+
+将坐标系沿着 x 轴移动 *dx* 个单位，沿着 y 轴移动 *dy* 个单位，并返回该变换矩阵的引用。
+
+> 个人笔记：也就是说，它不是移动物体，而是**移动坐标系**（即你后续绘制内容的位置会被偏移）
+

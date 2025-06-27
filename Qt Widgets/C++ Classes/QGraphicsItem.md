@@ -84,6 +84,28 @@ https://doc.qt.io/qt-6/qgraphicsitem.html
 
 默认情况下，图元未被选中。
 
+### 堆叠顺序
+
+##### `void setZValue(qreal z)`
+
+将图元的 Z 值设置为 *z* 。Z 值决定了**兄弟图元**之间的**堆叠顺序**。Z 值较高的兄弟图元总是绘制在 Z 值较低的兄弟图元之上。
+
+==如果你将 Z 值恢复为之前的值，则图元的插入顺序将决定其堆叠顺序。==
+
+Z 值不会以任何方式影响图元的尺寸。
+
+默认的 Z 值是 `0`。
+
+##### `qreal zValue() const`
+
+返回图元的 Z 值。默认的 Z 值是 `0`。
+
+##### `void stackBefore(const QGraphicsItem *sibling)`
+
+将此图元堆叠在 *sibling* 前，*sibling* 必须是**兄弟图元**（即两图元必须有同一个父图元，或两者都是顶层图元）。==*sibling* 必须与该图元具有相同的 Z 值==，否则调用该函数不会产生任何影响。
+
+默认情况下，所有兄弟图元**按插入顺序堆叠**（即先添加的图元先绘制，后添加的图元后绘制）。如果两个图元的 Z 值不同，则 Z 值较高的图元绘制在上方；如果 Z 值相同，则插入顺序决定堆叠顺序。
+
 ### 绘制
 
 ##### `virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) = 0`
@@ -194,6 +216,14 @@ QPainterPath RoundItem::shape() const
 ##### `QPointF scenePos() const`
 
 返回图元在**场景坐标系**中的位置。等价于调用`mapToScene(0, 0)`。
+
+### 子图元
+
+##### `QList<QGraphicsItem *> childItems() const`
+
+返回该图元的子图元列表。
+
+这些图元按堆叠顺序（stacking order）排序。排序顺序会综合考虑图元的**插入顺序**以及它们的 **Z 值（Z-values）**。
 
 # Protected Functions
 

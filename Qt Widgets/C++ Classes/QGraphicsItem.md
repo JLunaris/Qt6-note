@@ -213,6 +213,10 @@ QPainterPath RoundItem::shape() const
 
 等价于`setPos(x(), y)`。
 
+##### `void moveBy(qreal dx, qreal dy)`
+
+等价于`setPos(pos() + QPointF(dx, dy))`。
+
 ##### `QPointF scenePos() const`
 
 返回图元在**场景坐标系**中的位置。等价于调用`mapToScene(0, 0)`。

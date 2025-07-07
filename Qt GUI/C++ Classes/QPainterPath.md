@@ -76,4 +76,39 @@ painter.drawPath(myPath);
 
 路径的集合运算会将路径视为**区域**。**非闭合路径会被视为隐式闭合的**。由于贝塞尔曲线相交运算的数值不稳定性，贝塞尔曲线可能会被离散化为线段（line segments）来处理。
 
+### 路径元素
+
+##### `QPainterPath::Element elementAt(int index) const`
+
+返回 painter path 中 *index* 处的元素。
+
+##### `void setElementPositionAt(int index, qreal x, qreal y)`
+
+将 *index* 索引处元素的坐标设为`(x, y)`。
+
+##### `int elementCount() const`
+
+返回 painter path 中路径元素的数量。
+
+##### `bool isEmpty() const`
+
+如果路径中没有元素，或只有一个[`MoveToElement`](https://doc.qt.io/qt-6/qpainterpath.html#ElementType-enum)元素，返回`true`；否则返回`false`。
+
+### 内存空间管理
+
+##### `void reserve(int size)`
+
+在`QPainterPath`的内存中预留给定数量的元素。
+
+尝试为至少 *size* 个元素分配内存。
+
+##### `int capacity() const`
+
+返回`QPainterPath`分配的元素的数量。
+
+##### `void clear()`
+
+清除存储的路径元素。
+
+这会允许路径重用之前的内存分配（即虽然路径中的元素都被清除了，但 Qt 没有释放掉它之前分配的内存，后续往路径里添加元素时可以继续使用这块内存区域，无需重新申请内存空间）。
 

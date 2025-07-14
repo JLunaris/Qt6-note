@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9572d11493dc7127",
+        "id": "1dd276aa83276d9c",
         "type": "tabs",
         "children": [
           {
-            "id": "8c9d0636699dfbf8",
+            "id": "08e8d200bd11906d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QGraphicsItem.md",
+                "file": "Qt GUI/C++ Classes/QTransform.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QGraphicsItem"
+              "title": "QTransform"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt Widgets/C++ Classes/QGraphicsItem.md",
+                "file": "Qt GUI/C++ Classes/QTransform.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QGraphicsItem 的大纲"
+              "title": "QTransform 的大纲"
             }
           },
           {
@@ -181,15 +181,18 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
+    "Qt Widgets/C++ Classes/QGraphicsScene.md",
+    "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
+    "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
+    "Qt Widgets/C++ Classes/QGraphicsView.md",
+    "Overviews/Using the Meta-Object Compiler (moc).md",
+    "Qt Core/C++ Classes/QSignalBlocker.md",
+    "Qt Widgets/C++ Classes/QGraphicsItem.md",
+    "Qt GUI/C++ Classes/QTransform.md",
     "Qt GUI/C++ Classes/QPainterPath.md",
     "Qt Widgets/C++ Classes/QWidget.md",
-    "Overviews/Using the Meta-Object Compiler (moc).md",
-    "Qt Widgets/C++ Classes/QGraphicsItem.md",
     "Qt Core/C++ Classes/QObject.md",
     "Qt Widgets/C++ Classes/QFrame.md",
-    "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Qt Widgets/C++ Classes/QGraphicsScene.md",
-    "Qt GUI/C++ Classes/QTransform.md",
     "Qt Core/The Meta-Object System.md",
     "image/Pasted image 20250624171335.png",
     "Qt GUI/C++ Classes/QVector2D.md",
@@ -209,9 +212,6 @@
     "image/Pasted image 20250620164947.png",
     "image/Pasted image 20250620164914.png",
     "Pasted image 20250620164706.png",
-    "Qt Widgets/Graphics View Framework.md",
-    "Qt Widgets/Window and Dialog Widgets.md",
-    "Qt GUI/C++ Classes/QGradient.md",
     "Modules/Qt XML/C++ Classes",
     "Modules/Qt XML",
     "image/Pasted image 20250530171606.png",

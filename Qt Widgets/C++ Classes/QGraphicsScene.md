@@ -109,7 +109,14 @@ scene.setForegroundBrush(QBrush(Qt::lightGray, Qt::CrossPattern));
 
 此外，该场景对象会从应用程序的**全局场景列表**中移除，并且会从所有**与之关联的视图**中移除。
 
+### 图元管理
+
+##### `void removeItem(QGraphicsItem *item)`
+
+从场景中移除图元 *item* 及其所有子图元。*item* 的所有权将传递给调用者（即，当`QGraphicsScene`被销毁时，将不再负责删除该 *item*）。
+
 ### 渲染
+
 ##### `void render( 参数列表 )`
 
 ```Cpp

@@ -74,6 +74,81 @@ if (!isAffine()) {
 
 `QTransform`提供了[`translate()`](https://doc.qt.io/qt-6/qtransform.html#translate)、[`rotate()`](https://doc.qt.io/qt-6/qtransform.html#rotate)、[`scale()`](https://doc.qt.io/qt-6/qtransform.html#scale)、[`shear()`](https://doc.qt.io/qt-6/qtransform.html#shear)等便捷函数，可基于当前定义的坐标系来操作矩阵的各种元素。
 
+### 重置矩阵
+
+##### `void reset()`
+
+将矩阵重置为**单位矩阵**，即`m11`和`m22`（表示缩放）和`m33`设为`1`，其他所有元素设为`0`。
+
+### 映射
+
+##### `void map(qreal x, qreal y, qreal *tx, qreal *ty) const`
+
+将给定的坐标 *x* 和 *y* 映射到该矩阵定义的坐标系中。结果值分别存储到 *tx* 和 *ty* 中。
+
+坐标按以下公式进行变换：
+
+```
+x' = m11*x + m21*y + dx
+y' = m22*y + m12*x + dy
+if (!isAffine()) {
+    w' = m13*x + m23*y + m33
+    x' /= w'
+    y' /= w'
+}
+```
+
+`(x, y)`是原始点，`(x', y')`是变换后的点。
+
+##### `QPainterPath map(const QPainterPath &path) const`
+
+重载函数。
+
+创建并返回`QPainterPath`对象，这是将传入的 *path* 映射到该矩阵定义的坐标系中的结果。
+
+##### 其他map函数
+
+```cpp
+QLine map(const QLine &l) const
+QLineF map(const QLineF &line) const
+QPoint map(const QPoint &point) const
+QPointF map(const QPointF &p) const
+QPolygon map(const QPolygon &polygon) const
+QPolygonF map(const QPolygonF &polygon) const
+QRegion map(const QRegion &region) const
+void map(int x, int y, int *tx, int *ty) const
+```
+
+##### `QRectF mapRect(const QRectF &rectangle) const`
+
+创建并返回`QRectF`对象，这是将传入的 *rectangle* 映射到该矩阵定义的坐标系中的结果。
+
+矩形的坐标按以下公式进行变换：
+
+```
+x' = m11*x + m21*y + dx
+y' = m22*y + m12*x + dy
+if (!isAffine()) {
+    w' = m13*x + m23*y + m33
+    x' /= w'
+    y' /= w'
+}
+```
+
+如果指定了旋转或切变，该函数返回的是==变换后区域的边界矩形==。要获取变换后的精确区域形状，请使用`mapToPolygon()`函数。
+
+##### `QRect mapRect(const QRect &rectangle) const`
+
+重载函数。
+
+变换后的坐标会被四舍五入为最接近的整数值。
+
+##### `QPolygon mapToPolygon(const QRect &rectangle) const`
+
+创建并返回`QPolygon`对象，这是将传入的 *rectangle* 映射到该矩阵定义的坐标系中的结果。
+
+多边形和矩形在变换时行为略有不同（由于整数舍入），因此`matrix.map(QPolygon(rectangle))`和`matrix.mapToPolygon(rectangle)`的结果不一定完全相同。
+
 ### 平移
 
 ##### `QTransform &translate(qreal dx, qreal dy)`
@@ -82,3 +157,18 @@ if (!isAffine()) {
 
 > 个人笔记：也就是说，它不是移动物体，而是**移动坐标系**（即你后续绘制内容的位置会被偏移）
 
+# Static Public Members
+
+##### `static bool quadToQuad(const QPolygonF &one, const QPolygonF &two, QTransform &trans)`
+
+创建一个==能够将一个四边形 *one* 映射为另一个四边形 *two* ==的变换矩阵 *trans*。如果该变换是可能的，返回`true`；否则返回`false`。
+
+这是一个便捷函数，结合了`quadToSquare()`和`squareToQuad()`。
+
+##### `static bool quadToSquare(const QPolygonF &quad, QTransform &trans)`
+
+创建一个==能够将一个四边形 *quad* 映射为一个单位正方形==的变换矩阵 *trans*。如果该变换是可能的，返回`true`；否则返回`false`。
+
+##### `static bool squareToQuad(const QPolygonF &quad, QTransform &trans)`
+
+创建一个==能够将一个单位正方形映射为一个四边形 *quad* ==的变换矩阵 *trans*。如果该变换是可能的，返回`true`；否则返回`false`。

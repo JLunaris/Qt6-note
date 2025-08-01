@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1dd276aa83276d9c",
+        "id": "8047006999d061b0",
         "type": "tabs",
         "children": [
           {
-            "id": "08e8d200bd11906d",
+            "id": "eb18dc7436d2a874",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Qt GUI/C++ Classes/QTransform.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "QTransform"
+              "title": "新标签页"
             }
           }
         ]
@@ -142,13 +138,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Qt GUI/C++ Classes/QTransform.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "QTransform 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -181,14 +176,16 @@
   },
   "active": "6389453fb48b1fd4",
   "lastOpenFiles": [
+    "Overviews/Best Practice Guides/Exception Safety.md",
+    "Overviews/Using the Meta-Object Compiler (moc).md",
+    "Overviews/Best Practice Guides",
+    "Qt GUI/C++ Classes/QTransform.md",
     "Qt Widgets/C++ Classes/QGraphicsScene.md",
     "Modules/Qt SVG/C++ Classes/QSvgGenerator.md",
     "Modules/Qt SVG/C++ Classes/QSvgRenderer.md",
     "Qt Widgets/C++ Classes/QGraphicsView.md",
-    "Overviews/Using the Meta-Object Compiler (moc).md",
     "Qt Core/C++ Classes/QSignalBlocker.md",
     "Qt Widgets/C++ Classes/QGraphicsItem.md",
-    "Qt GUI/C++ Classes/QTransform.md",
     "Qt GUI/C++ Classes/QPainterPath.md",
     "Qt Widgets/C++ Classes/QWidget.md",
     "Qt Core/C++ Classes/QObject.md",
@@ -207,7 +204,6 @@
     "Modules/Qt XML/C++ Classes/QDomDocument.md",
     "Modules/Qt XML/C++ Classes/QDomNode.md",
     "Modules/Qt XML/C++ Classes/QDomElement.md",
-    "Qt Widgets/C++ Classes/QGraphicsObject.md",
     "image/Pasted image 20250620164726.png",
     "image/Pasted image 20250620164947.png",
     "image/Pasted image 20250620164914.png",
@@ -226,7 +222,6 @@
     "未命名.canvas",
     "Qt Widgets/Qt Style Sheets",
     "Qt Core/C++ Classes",
-    "Qt Core",
-    "image"
+    "Qt Core"
   ]
 }
